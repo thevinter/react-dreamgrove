@@ -1,0 +1,67 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+'use client'
+import React, { useEffect, useState } from 'react'
+import { FaAngleDown } from 'react-icons/fa'
+import { FaAngleUp } from 'react-icons/fa'
+
+import './Talents.css'
+
+export default function Talents({ name, talents }) {
+  const [isVisible, setIsVisible] = useState(false)
+  const [iframeWidth, setIframeWidth] = useState(700)
+
+  const arrow = !isVisible ? <FaAngleDown /> : <FaAngleUp />
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const updateWidth = () => {
+        const mainElement = document.getElementById('main')
+        if (mainElement) {
+          const width = mainElement.clientWidth
+          setIframeWidth(width)
+        }
+      }
+
+      updateWidth() // Set initial width
+      window.addEventListener('resize', updateWidth)
+
+      return () => {
+        window.removeEventListener('resize', updateWidth)
+      }
+    }
+  }, [])
+
+  return (
+    <div>
+      <div
+        onClick={() => setIsVisible(!isVisible)}
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          cursor: 'pointer',
+          borderBottom: '2px solid white', // White underline
+        }}
+      >
+        <h3 onClick={() => setIsVisible(!isVisible)}>{name}</h3>
+        {arrow}
+      </div>
+      <div className={`iframe-container ${isVisible ? 'show' : 'hide'}`}>
+        <iframe
+          title={name}
+          src={`https://www.raidbots.com/simbot/render/talents/${talents}?bgcolor=000000&width=${iframeWidth * 0.99}&level=70&mini=&hideHeader=true&locale=en_US`}
+          width={iframeWidth}
+          height={iframeWidth * 0.64}
+          style={{
+            border: 'none',
+            borderRadius: '15px',
+            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)',
+            overflow: 'hidden',
+          }}
+        />
+      </div>
+    </div>
+  )
+}
