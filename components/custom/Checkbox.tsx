@@ -5,9 +5,14 @@ const Checkbox = ({ id, spellId, name, defaultCheck = false }) => {
   const [checked, setChecked] = useState(defaultCheck)
 
   const handleToggle = (value: boolean) => {
-    const elements = document.querySelectorAll<HTMLElement>(`#${id}`)
+    console.log(id)
+    const elements = document.querySelectorAll<HTMLElement>(`[id^="${id}"]`)
+    const negativeElements = document.querySelectorAll<HTMLElement>(`[id^="!${id}"]`)
     elements.forEach((element) => {
       element.style.display = value ? 'list-item' : 'none'
+    })
+    negativeElements.forEach((element) => {
+      element.style.display = value ? 'none' : 'list-item'
     })
   }
 
@@ -25,14 +30,15 @@ const Checkbox = ({ id, spellId, name, defaultCheck = false }) => {
   }, [defaultCheck])
 
   return (
-    <div>
-      <label>
+    <p className="mb-2 mt-2">
+      <label className="pr-24">
         <input type="checkbox" checked={checked} onChange={toggle} />
+        {'      '}
         <a href={`https://www.wowhead.com/spell=${spellId}`} className="inline">
           {name}
         </a>{' '}
       </label>
-    </div>
+    </p>
   )
 }
 

@@ -38,7 +38,7 @@ export const components: MDXComponents = {
     }
     children = processChildren(children)
     return (
-      <li id={id} {...props}>
+      <li id={`${id}-${Math.floor(Math.random() * 1000)}`} {...props}>
         {children}
       </li>
     )

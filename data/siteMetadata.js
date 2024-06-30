@@ -7,11 +7,11 @@ const siteMetadata = {
     'A website for resources, guides, theorycrafting, and discussion about all things Druid.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://druid.thevinter.com',
+  siteRepo: 'https://github.com/thevinter/react-dreamgrove',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
-  github: 'https://github.com',
+  github: 'https://github.com/thevinter/react-dreamgrove',
   locale: 'en-US',
   analytics: {
     umamiAnalytics: {

@@ -33,6 +33,7 @@ interface LayoutProps {
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
   const { filePath, path, slug, date, title, tags, toc } = content
   const basePath = path.split('/')[0]
+  console.log(tags)
 
   return (
     <SectionContainer>
@@ -78,13 +79,6 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-9 xl:pb-0"
             >
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
-              <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={discussUrl(path)} rel="nofollow">
-                  Discuss on Twitter
-                </Link>
-                {` • `}
-                <Link href={editUrl(filePath)}>View on GitHub</Link>
-              </div>
               {siteMetadata.comments && (
                 <div
                   className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
@@ -97,7 +91,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
 
             <footer className="xl:col-span-12">
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:divide-y">
-                {tags && (
+                {tags && tags.length > 0 && (
                   <div className="py-4 xl:py-8">
                     <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                       Tags
@@ -109,39 +103,6 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     </div>
                   </div>
                 )}
-                {(next || prev) && (
-                  <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
-                    {prev && prev.path && (
-                      <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          Previous Article
-                        </h2>
-                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${prev.path}`}>{prev.title}</Link>
-                        </div>
-                      </div>
-                    )}
-                    {next && next.path && (
-                      <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          Next Article
-                        </h2>
-                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${next.path}`}>{next.title}</Link>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-              <div className="pt-4 xl:pt-8">
-                <Link
-                  href={`/${basePath}`}
-                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                  aria-label="Back to the blog"
-                >
-                  &larr; Back to the blog
-                </Link>
               </div>
             </footer>
           </div>
