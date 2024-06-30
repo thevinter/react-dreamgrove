@@ -6,7 +6,7 @@ import guardian from 'public/static/images/cards/guardian-card.png'
 
 import Image from 'next/image'
 
-export default function Home() {
+export default function Home({ posts }) {
   const images = [
     { src: balance, href: '/blog/balance/compendium', alt: 'Balance guide', active: true },
     { src: feral, href: '/blog/feral/compendium', alt: 'Feral guide', active: true },

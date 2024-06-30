@@ -3,6 +3,7 @@
 import { ThemeProvider } from 'next-themes'
 import siteMetadata from '@/data/siteMetadata'
 import { useEffect, useState } from 'react'
+import Script from 'next/script'
 
 export function ThemeProviders({ children }: { children: React.ReactNode }) {
   const [loaded, setLoaded] = useState(false)
@@ -26,6 +27,7 @@ export function ThemeProviders({ children }: { children: React.ReactNode }) {
   }, [loaded])
   return (
     <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme} enableSystem>
+      <Script src="https://wow.zamimg.com/widgets/power.js" strategy="afterInteractive" />
       {children}
     </ThemeProvider>
   )
