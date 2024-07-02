@@ -8,6 +8,10 @@ import TableWrapper from './TableWrapper'
 import Spell from './custom/Spell'
 import Talents from './custom/Talents'
 import Checkbox from './custom/Checkbox'
+import HeroTalents from './custom/HeroTalents/HeroTalents'
+import HeroTalentsPicker from './custom/HeroTalents/HeroTalentsPicker'
+import DungeonCard from './custom/Dungeons/DungeonCard'
+import Npc from './custom/Npc'
 
 export const components: MDXComponents = {
   Image,
@@ -49,4 +53,8 @@ export const components: MDXComponents = {
   Spell,
   Talents,
   Checkbox,
+  HeroTalents,
+  HeroTalentsPicker,
+  DungeonCard,
+  Npc,
 }

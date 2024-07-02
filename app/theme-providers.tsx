@@ -7,6 +7,7 @@ import Script from 'next/script'
 
 export function ThemeProviders({ children }: { children: React.ReactNode }) {
   const [loaded, setLoaded] = useState(false)
+  const [scr, setScr] = useState(false)
   useEffect(() => {
     if (typeof window !== 'undefined' && !loaded) {
       const script1 = document.createElement('script')
@@ -27,7 +28,14 @@ export function ThemeProviders({ children }: { children: React.ReactNode }) {
   }, [loaded])
   return (
     <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme} enableSystem>
-      <Script src="https://wow.zamimg.com/widgets/power.js" strategy="afterInteractive" />
+      <Script
+        src="https://wow.zamimg.com/widgets/power.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          console.log('loaded script')
+          setScr(true)
+        }}
+      />
       {children}
     </ThemeProvider>
   )
