@@ -1,11 +1,10 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 
-const Checkbox = ({ id, spellId, name, defaultCheck = false }) => {
+const Checkbox = ({ id, spellId = '', name, defaultCheck = false }) => {
   const [checked, setChecked] = useState(defaultCheck)
 
   const handleToggle = (value: boolean) => {
-    console.log(id)
     const elements = document.querySelectorAll<HTMLElement>(`[id^="${id}"]`)
     const negativeElements = document.querySelectorAll<HTMLElement>(`[id^="!${id}"]`)
     elements.forEach((element) => {
@@ -28,6 +27,18 @@ const Checkbox = ({ id, spellId, name, defaultCheck = false }) => {
     setChecked(defaultCheck)
     handleToggle(defaultCheck)
   }, [defaultCheck])
+
+  if (spellId == '') {
+    return (
+      <p className="mb-2 mt-2">
+        <label className="pr-24">
+          <input type="checkbox" checked={checked} onChange={toggle} />
+          {'      '}
+          {name}{' '}
+        </label>
+      </p>
+    )
+  }
 
   return (
     <p className="mb-2 mt-2">

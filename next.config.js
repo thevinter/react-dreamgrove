@@ -55,15 +55,13 @@ const securityHeaders = [
   {
     key: 'Content-Security-Policy',
     value: `
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://wow.zamimg.com;
-    style-src 'self' 'unsafe-inline' 'unsafe-eval' https://wow.zamimg.com;
-    img-src 'self' data: https://wow.zamimg.com;
-    connect-src 'self' https://nether.wowhead.com;
-    frame-src 'self' https://www.raidbots.com; 
-    script-src 'self' https://www.raidbots.com;",
-
-  `
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://wow.zamimg.com https://www.raidbots.com https://mimiron.raidbots.com;
+      style-src 'self' 'unsafe-inline' 'unsafe-eval' https://wow.zamimg.com;
+      img-src 'self' data: https://wow.zamimg.com;
+      connect-src 'self' https://nether.wowhead.com;
+      frame-src 'self' https://www.raidbots.com https://mimiron.raidbots.com;
+    `
       .replace(/\s{2,}/g, ' ')
       .trim(),
   },

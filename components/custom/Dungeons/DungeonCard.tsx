@@ -1,12 +1,15 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image'
-export default function DungeonCard({ title, children }) {
+export default function DungeonCard({ title, image, children }) {
+  console.log(children)
   return (
-    <div className="mb-6 flex w-full rounded-lg border border-gray-300 shadow-lg">
+    <div
+      className={`mb-6 flex w-full rounded-lg border border-gray-300 shadow-lg ${children.length == 0 ? 'hidden' : ''}`}
+    >
       <div className="relative w-1/4">
         <Image
-          src="/static/images/talents/balance.png"
+          src={`/static/images/dungeons/${image}`}
           layout="fill"
           objectFit="cover"
           alt="Image"
