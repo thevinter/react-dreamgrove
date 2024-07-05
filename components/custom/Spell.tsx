@@ -36,6 +36,7 @@ export default async function Spell({ id, name }) {
   if (!name) {
     const res = await fetch(`https://www.wowhead.com/spell=${id}`)
     display = formatUrl(res.url)
+    console.log(res.url)
   }
 
   return (

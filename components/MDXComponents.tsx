@@ -12,6 +12,7 @@ import HeroTalents from './custom/HeroTalents/HeroTalents'
 import HeroTalentsPicker from './custom/HeroTalents/HeroTalentsPicker'
 import DungeonCard from './custom/Dungeons/DungeonCard'
 import Npc from './custom/Npc'
+import CheckboxProvider from './custom/CheckboxProvider'
 
 export const components: MDXComponents = {
   Image,
@@ -57,4 +58,5 @@ export const components: MDXComponents = {
   HeroTalentsPicker,
   DungeonCard,
   Npc,
+  CheckboxProvider,
 }

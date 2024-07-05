@@ -1,7 +1,7 @@
 const whTooltips = {
   colorLinks: true,
   iconizeLinks: true,
-  renameLinks: true,
+  renameLinks: false,
 }
 
 window.WH = new (function () {
