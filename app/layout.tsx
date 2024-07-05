@@ -60,6 +60,8 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const scriptSrc = 'https://wow.zamimg.com/js/tooltips.js'
+
   return (
     <html
       lang={siteMetadata.language}
@@ -88,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </SectionContainer>
         </ThemeProviders>
+        <Script src="/static/scripts/tooltip.js" strategy="afterInteractive" />
       </body>
     </html>
   )

@@ -8,7 +8,7 @@ import { FaAngleUp } from 'react-icons/fa'
 
 import './Talents.css'
 
-export default function Talents({ name, talents }) {
+export default function Talents({ name, talents, mimiron = false }) {
   const [isVisible, setIsVisible] = useState(false)
   const [iframeWidth, setIframeWidth] = useState(700)
 
@@ -51,7 +51,7 @@ export default function Talents({ name, talents }) {
       <div className={`iframe-container ${isVisible ? 'show' : 'hide'}`}>
         <iframe
           title={name}
-          src={`https://www.raidbots.com/simbot/render/talents/${talents}?bgcolor=000000&width=${iframeWidth * 0.99}&level=70&mini=&hideHeader=true&locale=en_US`}
+          src={`https://${mimiron ? 'mimiron' : 'www'}.raidbots.com/simbot/render/talents/${talents}?bgcolor=000000&width=${iframeWidth * 0.99}&level=70&mini=&hideHeader=true&locale=en_US`}
           width={iframeWidth}
           height={iframeWidth * 0.64}
           style={{

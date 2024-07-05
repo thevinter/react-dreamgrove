@@ -1,3 +1,4 @@
+'use client'
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
 import png from '../public/static/images/logo.png'
@@ -6,8 +7,14 @@ import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
+import Script from 'next/script'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 
 const Header = () => {
+  const route = usePathname()
+
   return (
     <header className="flex items-center justify-between py-6">
       <div>
