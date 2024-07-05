@@ -23,19 +23,20 @@ The way this section is written is very formulaic and has the same structure as 
 ## Pre-combat
 
 **Pre-Combat:**
-- Use <Spell id={319454} name={"Heart of the Wild"}/>
-- Use <Spell id={102547} name={"Prowl"}/>
-- Use <Spell id={5217} name={"Tiger's Fury"}/>
-- Use <Spell id={1822} name={"Rake"}/> from stealth.
+- Use !Heart of the Wild!
+- Use !Prowl!
+- Use !Tiger's Fury!
+- Use !Rake! from stealth.
 
 ## Single Target Priority
 
 **Select which talents you have talented to filter the priority list:**
 
+<CheckboxProvider>
 <Checkbox id="Feral Frenzy" spellId={274838} name="Feral Frenzy" defaultCheck />
 <Checkbox id="Convoke the Spirits" spellId={391528} name="Convoke the Spirits" defaultCheck />
-<Checkbox id="Adaptive Swarm" spellId={391889} name="Adaptive Swarm" defaultCheck />
-<Checkbox id="Unbridled Swarm" spellId={391951} name="Unbridled Swarm"  />
+<Checkbox id="Adaptive Swarm" spellId={391889} name="Adaptive Swarm" defaultCheck radio="Adaptive Swarm"/>
+<Checkbox id="Unbridled Swarm" spellId={391951} name="Unbridled Swarm"  radio="Adaptive Swarm"/>
 <Checkbox id="Incarnation" spellId={102543} name="Incarnation"  />
 <Checkbox id="Lunar Inspiration" spellId={155580} name="Lunar Inspiration"  />
 <Checkbox id="Apex Predator's Craving" spellId={391881} name="Apex Predator's Craving" defaultCheck />
@@ -43,121 +44,123 @@ The way this section is written is very formulaic and has the same structure as 
 <Checkbox id="Relentless Predator" spellId={393771} name="Relentless Predator"  />
 <Checkbox id="Thrashing Claws" spellId={405300} name="Thrashing Claws"  />
 <Checkbox id="Sudden Ambush" spellId={384667} name="Sudden Ambush" defaultCheck />
-<Checkbox id="Brutal Slash" spellId={202028} name="Brutal Slash" defaultCheck />
-<Checkbox id="Wild Slashes" spellId={390864} name="Wild Slashes"  />
+<Checkbox id="Brutal Slash" spellId={202028} name="Brutal Slash" radio="Brutal Slash" defaultCheck />
+<Checkbox id="Wild Slashes" spellId={390864} radio="Brutal Slash" name="Wild Slashes"  />
 <Checkbox id="Shadowmeld" spellId={58984} name="Shadowmeld"  />
 <Checkbox id="Dire Fixation" spellId={417710} name="Dire Fixation" defaultCheck />
 <Checkbox id="T31 2P" name="T31 2P" defaultCheck />
 <Checkbox id="T31 4P" name="T31 4P" defaultCheck />
+</CheckboxProvider>
 
 **Single Target priority list:**
 
-- Use <Spell id={5217} name={"Tiger's Fury"}/> if any of the following conditions are met
-    - <Spell id={5217} name={"Tiger's Fury"}/> is not up.
+- Use !Tiger's Fury! if any of the following conditions are met
+    - !Tiger's Fury! is not up.
     - You are more than 65 energy from the cap.
-    - [*T31 2P] <Spell id={274838} name={"Feral Frenzy"}/> is ready to be used.
-    - [*!T31 4P] You've talented <Spell id={391528} name={"Convoke the Spirits"}/> (This keeps <Spell id={5217} name={"Tiger's Fury"}/> and <Spell id={391528} name={"Convoke"}/> aligned.)
-- [*Adaptive Swarm]  Use <Spell id={391889} name={"Adaptive Swarm"}/> when all of these conditions are met:
-    - There isn't an <Spell id={391889} name={"Adaptive Swarm"}/> heading to an enemy target.
-    - <Spell id={391889} name={"Adaptive Swarm"}/> is either not up or it is about to expire with 1 or 2 stacks.
-- [*Unbridled Swarm] <Spell id={391889} name={"Adaptive Swarm"}/> conditions change based on the amount of <Spell id={391889} name={"Adaptive Swarms"}/> you have out:
-    - If you have 3 <Spell id={391889} name={"Adaptive Swarms"}/> with at least 2 stacks out then you will target allies with priority 1 stack > 0 stack > 2 stacks.
-    - If you have 2 or fewer <Spell id={391889} name={"Adaptive Swarms"}/> of at least 2 stacks, cast on your enemy target when swarm is not on them, and is not traveling towards them.
-- [*Incarnation] Use <Spell id={102543} name={"Incarnation"}/> if it's ready.
-- [*Convoke the Spirits] Use <Spell id={391528} name={"Convoke"}/> if all of the following conditions are met:
-    - <Spell id={1079} name={"Rip"}/> will not fall off during Convoke's channel.
-    - <Spell id={5217} name={"Tiger's Fury"}/> is up.
-    - [*T31 4P] <Spell id={422751} name={"Smoldering Frenzy"}/> is up
-    - [*T31 2P] You have 0 or 1 combo points OR <Spell id={422751} name={"Smoldering Frenzy"}/> would fall off before Convoke ends.
-- [*Feral Frenzy] Use <Spell id={274838} name={"Feral Frenzy"}/> if all of the following conditions are met:
-    - [*Dire Fixation] <Spell id={417710} name={"Dire Fixation"}/> is applied to the target.
-    - You have less than 2 combo points and are not in <Spell id={102543} name={"Incarn"}/>/<Spell id={106951} name={"Berserk"}/>, or under 3 combo points during <Spell id={102543} name={"Incarn"}/>/<Spell id={106951} name={"Berserk"}/>.
-- [*Apex Predator's Craving] Use <Spell id={22568} name={"Ferocious Bite"}/> if you have a <Spell id={391881} name={"Apex Predator's Craving"}/> proc.
+    - [*T31 2P] !Feral Frenzy! is ready to be used.
+    - [*~T31 4P] You've talented !Convoke the Spirits! (This keeps !Tiger's Fury! and !391528|Convoke! aligned.)
+- [*Adaptive Swarm]  Use !Adaptive Swarm! when all of these conditions are met:
+    - There isn't an !Adaptive Swarm! heading to an enemy target.
+    - !Adaptive Swarm! is either not up or it is about to expire with 1 or 2 stacks.
+- [*Unbridled Swarm] !Adaptive Swarm! conditions change based on the amount of !391888|Adaptive Swarms! you have out:
+    - If you have 3 !391888|Adaptive Swarms! with at least 2 stacks out then you will target allies with priority 1 stack > 0 stack > 2 stacks.
+    - If you have 2 or fewer !391888|Adaptive Swarms! of at least 2 stacks, cast on your enemy target when swarm is not on them, and is not traveling towards them.
+- [*Incarnation] Use !102543|Incarnation! if it's ready.
+- [*Convoke the Spirits] Use !391528|Convoke! if all of the following conditions are met:
+    - !Rip! will not fall off during Convoke's channel.
+    - !Tiger's Fury! is up.
+    - [*T31 4P] !422751|Smoldering Frenzy! is up
+    - [*T31 2P] You have 0 or 1 combo points OR !422751|Smoldering Frenzy! would fall off before Convoke ends.
+- [*Feral Frenzy] Use !Feral Frenzy! if all of the following conditions are met:
+    - [*Dire Fixation] !Dire Fixation! is applied to the target.
+    - You have less than 2 combo points and are not in !102543|Incarn!/!Berserk!, or under 3 combo points during !102543|Incarn!/!Berserk!.
+- [*Apex Predator's Craving] Use !Ferocious Bite! if you have a !Apex Predator's Craving! proc.
 
-**If you are in <Spell id={106951} name={"Berserk"}/> check this as your priorities from here on out change a bit:**
+**If you are in !Berserk! check this as your priorities from here on out change a bit:**
 <Checkbox id="Berserk" spellId={106951} name="Berserk" /> 
 
 <div>
-- [*!Berserk] **Standard Priority**
-    - Use <Spell id={1079} name={"Rip"}/> when all of these conditions are met:
+- [*~Berserk] **Standard Priority**
+    - Use !Rip! when all of these conditions are met:
         - You have at least 4 combo points
-        - [*T31 2P] <Spell id={1079} name={"Rip"}/> is in pandemic OR all of these conditions are met:
-            - <Spell id={1079} name={"Rip"}/> has less than 10 seconds remaining
-            - Your next gcd will be <Spell id={274838} name={"Feral Frenzy"}/>
-        - [*!T31 2P] <Spell id={1079} name={"Rip"}/> is in pandemic
-        - [*T31 2P] <Spell id={1079} name={"Rip"}/> has less than 2 seconds remaining, or you don't have <Spell id={422751} name={"Smoldering Frenzy"}/> up. Yes this means <Spell id={1079} name={"Rip"}/> will sometimes fall off with proper play.
-        - <Spell id={5217} name={"Tiger's Fury"}/> is up, or won't be up before <Spell id={1079} name={"Rip"}/> expires.
-        - [*Bloodtalons] <Spell id={319439} name={"Bloodtalons"}/> is up, or won't be up before <Spell id={1079} name={"Rip"}/> expires.
-    - Use <Spell id={22568} name={"Ferocious Bite"}/> when all of these conditions are met:
+        - [*T31 2P] !Rip! is in pandemic OR all of these conditions are met:
+            - !Rip! has less than 10 seconds remaining
+            - Your next gcd will be !Feral Frenzy!
+        - [*~T31 2P] !Rip! is in pandemic
+        - [*T31 2P] !Rip! has less than 2 seconds remaining, or you don't have !422751|Smoldering Frenzy! up. Yes this means !Rip! will sometimes fall off with proper play.
+        - !Tiger's Fury! is up, or won't be up before !Rip! expires.
+        - [*Bloodtalons] !Bloodtalons! is up, or won't be up before !Rip! expires.
+    - Use !Ferocious Bite! when all of these conditions are met:
         - You have at least 4 combo points
-        - [*!Relentless Predator] You have at least 50 energy. If you have the combo points, you should wait until you reach these energy thresholds.
+        - [*~Relentless Predator] You have at least 50 energy. If you have the combo points, you should wait until you reach these energy thresholds.
         - [*Relentless Predator] You have at least 45 energy. If you have the combo points, you should wait until you reach these energy thresholds.
-    - [*Bloodtalons] **Below this point, skip any spells you've already casted towards <Spell id={319439} name={"Bloodtalons"}/>, if you have 0 or 1 stacks of <Spell id={319439} name={"Bloodtalons"}/> remaining.**
-    - [*!Thrashing Claws] Use <Spell id={16864} name={"Clearcasting"}/> procs on <Spell id={106830} name={"Thrash"}/> if all of these conditions are met:
-        - <Spell id={106830} name={"Thrash"}/> is in Pandemic.
-        - [*Dire Fixation] <Spell id={417710} name={"Dire Fixation"}/> is already applied to your target.
-    - [*Dire Fixation] Use <Spell id={5221} name={"Shred"}/> if <Spell id={417710} name={"Dire Fixation"}/> is not on your target or you have a <Spell id={16864} name={"Clearcasting"}/> proc.
-    - [*!Dire Fixation] Use <Spell id={5221} name={"Shred"}/> if you have a <Spell id={16864} name={"Clearcasting"}/> proc.
-    - [*Brutal Slash] Use <Spell id={202028} name={"Brutal Slash"}/> if it will cap on charges within the next 4 seconds.
-    - [*Shadowmeld] Use <Spell id={58984} name={"Shadowmeld"}/> followed by <Spell id={1822} name={"Rake"}/> if all of these conditions are met:
-        - [*Sudden Ambush] You do not have a <Spell id={384667} name={"Sudden Ambush"}/> proc
-        - <Spell id={1822} name={"Rake"}/> is in pandemic OR you would be upgrading <Spell id={1822} name={"Rake's"}/> snapshot value.
-    - Use <Spell id={1822} name={"Rake"}/> if any of these conditions are met:
-        - <Spell id={1822} name={"Rake"}/> is in pandemic and <Spell id={5217} name={"Tiger's Fury"}/> is either up, or won't be before <Spell id={1822} name={"Rake"}/> falls off.
+    - [*Bloodtalons] **Below this point, skip any spells you've already casted towards !Bloodtalons!, if you have 0 or 1 stacks of !Bloodtalons! remaining.**
+    - [*~Thrashing Claws] Use !Clearcasting! procs on !Thrash! if all of these conditions are met:
+        - !Thrash! is in Pandemic.
+        - [*Dire Fixation] !Dire Fixation! is already applied to your target.
+    - [*Dire Fixation] Use !Shred! if !Dire Fixation! is not on your target or you have a !Clearcasting! proc.
+    - [*~Dire Fixation] Use !Shred! if you have a !Clearcasting! proc.
+    - [*Brutal Slash] Use !Brutal Slash! if it will cap on charges within the next 4 seconds.
+    - [*Shadowmeld] Use !58984|Shadowmeld! followed by !Rake! if all of these conditions are met:
+        - [*Sudden Ambush] You do not have a !Sudden Ambush! proc
+        - !Rake! is in pandemic OR you would be upgrading !Rake!'s snapshot value.
+    - Use !Rake! if any of these conditions are met:
+        - !Rake! is in pandemic and !Tiger's Fury! is either up, or won't be before !Rake! falls off.
         - You are in stealth
-        - [*Sudden Ambush] You have a <Spell id={384667} name={"Sudden Ambush"}/> proc and you would be upgrading <Spell id={1822} name={"Rake's"}/> snapshot value.
-    - [*Lunar Inspiration] Use Lunar Inspiration <Spell id={155625} name={"Moonfire"}/> if it is in pandemic.
-    - [*!Thrashing Claws] Use <Spell id={106830} name={"Thrash"}/> if it is in pandemic
-    - [*Brutal Slash] Use <Spell id={202028} name={"Brutal Slash"}/>.
-    - [*Wild Slashes] Use <Spell id={106785} name={"Swipe"}/>
-    - Use <Spell id={5221} name={"Shred"}/>.
-    - [*Bloodtalons] If you still need <Spell id={319439} name={"Bloodtalons"}/> proc it with this priority:
-        - [*Lunar Inspiration] Clip Lunar Inspiration <Spell id={155625} name={"Moonfire"}/>
-        - [*!Brutal Slash] Use <Spell id={106785} name={"Swipe"}/>
-        - Use <Spell id={1822} name={"Rake"}/> if it will not downgrade <Spell id={1822} name={"Rake's"}/> snapshot value.
-        - Clip <Spell id={106830} name={"Thrash"}/>
+        - [*Sudden Ambush] You have a !Sudden Ambush! proc and you would be upgrading !Rake!'s snapshot value.
+    - [*Lunar Inspiration] Use Lunar Inspiration !Moonfire! if it is in pandemic.
+    - [*~Thrashing Claws] Use !Thrash! if it is in pandemic
+    - [*Brutal Slash] Use !Brutal Slash!.
+    - [*Wild Slashes] Use !Swipe!
+    - Use !Shred!.
+    - [*Bloodtalons] If you still need !Bloodtalons! proc it with this priority:
+        - [*Lunar Inspiration] Clip Lunar Inspiration !Moonfire!
+        - [*~Brutal Slash] Use !Swipe!
+        - Use !Rake! if it will not downgrade !Rake!'s snapshot value.
+        - Clip !Thrash!
 </div>
 <div>
 - [*Berserk] **Berserk Priority**
-    - Use <Spell id={1079} name={"Rip"}/> when all of these conditions are met:
+    - Use !Rip! when all of these conditions are met:
         - You have 5 combo points
-        - [*T31 2P] <Spell id={1079} name={"Rip"}/> is in pandemic OR all of these conditions are met:
-            - <Spell id={1079} name={"Rip"}/> has less than 10 seconds remaining
-            - Your next gcd will be <Spell id={274838} name={"Feral Frenzy"}/>
-        - [*!T31 2P] <Spell id={1079} name={"Rip"}/> is in pandemic
-        - [*T31 2P] <Spell id={1079} name={"Rip"}/> has less than 2 seconds remaining, or you don't have <Spell id={422751} name={"Smoldering Frenzy"}/> up. Yes this means <Spell id={1079} name={"Rip"}/> will sometimes fall off with proper play.
-        - <Spell id={5217} name={"Tiger's Fury"}/> is up, or won't be up before <Spell id={1079} name={"Rip"}/> expires.
-        - [*Bloodtalons] <Spell id={319439} name={"Bloodtalons"}/> is up, or won't be up before <Spell id={1079} name={"Rip"}/> expires.
-    - Use <Spell id={22568} name={"Ferocious Bite"}/> with 5 combo points
-    - [*Incarnation]  Use <Spell id={102547} name={"Prowl"}/> followed by <Spell id={1822} name={"Rake"}/> if it won't disrupt <Spell id={319439} name={"Bloodtalons"}/> and any of these conditions are true:
-        - <Spell id={1822} name={"Rake"}/> is not applied or is in pandemic range
-        - [*Sudden Ambush] You don't have <Spell id={384667} name={"Sudden Ambush"}/> AND a stealth <Spell id={1822} name={"Rake"}/> would be upgrading its snapshot
-    - [*Shadowmeld]  Use <Spell id={58984} name={"Shadowmeld"}/> followed by <Spell id={1822} name={"Rake"}/> if it won't disrupt <Spell id={319439} name={"Bloodtalons"}/> and any of these conditions are true:
-        - <Spell id={1822} name={"Rake"}/> is not applied or is in pandemic range
-        - [*Sudden Ambush] You don't have <Spell id={384667} name={"Sudden Ambush"}/> AND a stealth <Spell id={1822} name={"Rake"}/> would be upgrading its snapshot
-    - [*Bloodtalons] Use <Spell id={1822} name={"Rake"}/> if it won't disrupt <Spell id={319439} name={"Bloodtalons"}/> and any of these conditions are true:
-        - <Spell id={1822} name={"Rake"}/> is not applied or is in pandemic range
-        - [*Sudden Ambush] You have a <Spell id={384667} name={"Sudden Ambush"}/> proc AND a stealth <Spell id={1822} name={"Rake"}/> would be upgrading its snapshot
-    - [*!Bloodtalons] Use <Spell id={1822} name={"Rake"}/> if any of these conditions are true:
-        - <Spell id={1822} name={"Rake"}/> is not applied or is in pandemic range
-        - [*Sudden Ambush] You have a <Spell id={384667} name={"Sudden Ambush"}/> proc AND a stealth <Spell id={1822} name={"Rake"}/> would be upgrading its snapshot
-    - [*Bloodtalons] If you are one spell away from proccing <Spell id={319439} name={"Bloodtalons"}/> then proc it with this priority:
-        - <Spell id={5221} name={"Shred"}/>
-        - [*Brutal Slash] <Spell id={202028} name={"Brutal Slash"}/>.
-        - [*Lunar Inspiration] Lunar Inspiration <Spell id={155625} name={"Moonfire"}/> This is true even if it means clipping moonfire early.
-        - <Spell id={106830} name={"Thrash"}/> This is true even if it means clipping thrash early.
-    - [*Lunar Inspiration] Use Lunar Inspiration <Spell id={155625} name={"Moonfire"}/> if it is not applied or is in pandemic range.
-    - [*Brutal Slash] Use <Spell id={202028} name={"Brutal Slash"}/> if you have 2 or 3 charges
-    - Use <Spell id={5221} name={"Shred"}/>
+        - [*T31 2P] !Rip! is in pandemic OR all of these conditions are met:
+            - !Rip! has less than 10 seconds remaining
+            - Your next gcd will be !Feral Frenzy!
+        - [*~T31 2P] !Rip! is in pandemic
+        - [*T31 2P] !Rip! has less than 2 seconds remaining, or you don't have !422751|Smoldering Frenzy! up. Yes this means !Rip! will sometimes fall off with proper play.
+        - !Tiger's Fury! is up, or won't be up before !Rip! expires.
+        - [*Bloodtalons] !Bloodtalons! is up, or won't be up before !Rip! expires.
+    - Use !Ferocious Bite! with 5 combo points
+    - [*Incarnation]  Use !Prowl! followed by !Rake! if it won't disrupt !Bloodtalons! and any of these conditions are true:
+        - !Rake! is not applied or is in pandemic range
+        - [*Sudden Ambush] You don't have !Sudden Ambush! AND a stealth !Rake! would be upgrading its snapshot
+    - [*Shadowmeld]  Use !58984|Shadowmeld! followed by !Rake! if it won't disrupt !Bloodtalons! and any of these conditions are true:
+        - !Rake! is not applied or is in pandemic range
+        - [*Sudden Ambush] You don't have !Sudden Ambush! AND a stealth !Rake! would be upgrading its snapshot
+    - [*Bloodtalons] Use !Rake! if it won't disrupt !Bloodtalons! and any of these conditions are true:
+        - !Rake! is not applied or is in pandemic range
+        - [*Sudden Ambush] You have a !Sudden Ambush! proc AND a stealth !Rake! would be upgrading its snapshot
+    - [*~Bloodtalons] Use !Rake! if any of these conditions are true:
+        - !Rake! is not applied or is in pandemic range
+        - [*Sudden Ambush] You have a !Sudden Ambush! proc AND a stealth !Rake! would be upgrading its snapshot
+    - [*Bloodtalons] If you are one spell away from proccing !Bloodtalons! then proc it with this priority:
+        - !Shred!
+        - [*Brutal Slash] !Brutal Slash!.
+        - [*Lunar Inspiration] Lunar Inspiration !Moonfire! This is true even if it means clipping moonfire early.
+        - !Thrash! This is true even if it means clipping thrash early.
+    - [*Lunar Inspiration] Use Lunar Inspiration !Moonfire! if it is not applied or is in pandemic range.
+    - [*Brutal Slash] Use !Brutal Slash! if you have 2 or 3 charges
+    - Use !Shred!
 </div>
 ## AoE priority
 
 **Select which talents you have talented to filter the priority list:**
 
+<CheckboxProvider>
 <Checkbox id="Feral Frenzy-AOE" spellId={274838} name="Feral Frenzy" defaultCheck />
 <Checkbox id="Convoke the Spirits-AOE" spellId={391528} name="Convoke the Spirits" defaultCheck />
-<Checkbox id="Adaptive Swarm-AOE" spellId={391889} name="Adaptive Swarm"  />
-<Checkbox id="Unbridled Swarm-AOE" spellId={391951} name="Unbridled Swarm"  />
+<Checkbox id="Adaptive Swarm-AOE" spellId={391889} name="Adaptive Swarm" radio="Adaptive Swarm" />
+<Checkbox id="Unbridled Swarm-AOE" spellId={391951} name="Unbridled Swarm" radio="Adaptive Swarm"/>
 <Checkbox id="Incarnation-AOE" spellId={102543} name="Incarnation"  />
 <Checkbox id="Lunar Inspiration-AOE" spellId={155580} name="Lunar Inspiration"  />
 <Checkbox id="Apex Predator's Craving-AOE" spellId={391881} name="Apex Predator's Craving" defaultCheck />
@@ -172,72 +175,72 @@ The way this section is written is very formulaic and has the same structure as 
 <Checkbox id="Primal Wrath-AOE" spellId={285381} name="Primal Wrath" defaultCheck />
 <Checkbox id="T31 2P-AOE" name="T31 2P" defaultCheck />
 <Checkbox id="T31 4P-AOE" name="T31 4P" defaultCheck />
-
+</CheckboxProvider>
 
 **AoE priority list(2+ targets):**
-**Special Note: Try to use single-target spells on higher priority/higher healthed mobs, or mobs that have <Spell id={417710} name={"Dire Fixation"}/> on them.**
-- Use <Spell id={5217} name={"Tiger's Fury"}/> if any of the following conditions are met
-    - <Spell id={5217} name={"Tiger's Fury"}/> is not up.
+**Special Note: Try to use single-target spells on higher priority/higher healthed mobs, or mobs that have !Dire Fixation! on them.**
+- Use !Tiger's Fury! if any of the following conditions are met
+    - !Tiger's Fury! is not up.
     - You are more than 65 energy from the cap.
-    - [*T31 2P-AOE] <Spell id={274838} name={"Feral Frenzy"}/> is ready to be used.
-    - [*!T31 4P-AOE] You've talented <Spell id={391528} name={"Convoke the Spirits"}/> (This keeps <Spell id={5217} name={"Tiger's Fury"}/> and <Spell id={391528} name={"Convoke"}/> aligned.)
-- [*Adaptive Swarm-AOE] Use <Spell id={391889} name={"Adaptive Swarm"}/> when all of these conditions are met:
-    - There isn't an <Spell id={391889} name={"Adaptive Swarm"}/> heading to an enemy target.
-    - <Spell id={391889} name={"Adaptive Swarm"}/> is not up on a target.
-- [*Unbridled Swarm-AOE] With <Spell id={391951} name={"Unbridled Swarm"}/> talented, use <Spell id={391889} name={"Adaptive Swarm"}/> as often as you can with this priority:
-    - An enemy target has 2 stacks of <Spell id={391889} name={"Adaptive Swarm"}/>.
-    - An enemy target has 1 stack of <Spell id={391889} name={"Adaptive Swarm"}/>.
-    - An enemy target does not have <Spell id={391889} name={"Adaptive Swarm"}/>.
-- [*Incarnation-AOE] Use <Spell id={102543} name={"Incarnation"}/>
-- [*!Incarnation-AOE] Use <Spell id={106951} name={"Berserk"}/>
-- [*Convoke the Spirits-AOE] Use <Spell id={391528} name={"Convoke"}/> if all of the following conditions are met:
-    - Your <Spell id={1079} name={"Rips"}/> will not fall off during <Spell id={391528} name={"Convoke's"}/> channel.
-    - <Spell id={5217} name={"Tiger's Fury"}/> is up.
-    - [*T31 4P-AOE] <Spell id={422751} name={"Smoldering Frenzy"}/> is up.
-    - [*T31 2P-AOE] You have 0 or 1 combo points OR <Spell id={422751} name={"Smoldering Frenzy"}/> would fall off before <Spell id={391528} name={"Convoke"}/> ends.
-    - [*!T31 2P-AOE] You have 0 or 1 combo points
-- [*Feral Frenzy-AOE] Use <Spell id={274838} name={"Feral Frenzy"}/> if you have less than 2 combo points and are not in <Spell id={102543} name={"Incarn"}/>/<Spell id={106951} name={"Berserk"}/>, or under 3 combo points during <Spell id={102543} name={"Incarn"}/>/<Spell id={106951} name={"Berserk"}/>.
-- [*Apex Predator's Craving-AOE] Use <Spell id={22568} name={"Ferocious Bite"}/> if you have a <Spell id={391881} name={"Apex Predator's Craving"}/> proc and:
-    - [*!Primal Wrath-AOE] Don't have <Spell id={285381} name={"Primal Wrath"}/> talented or
-    - Don't have <Spell id={202031} name={"Sabertooth"}/> up.
-- [*Primal Wrath-AOE] Use <Spell id={285381} name={"Primal Wrath"}/> if you have 5 combo points, or at least 4 combo points outside of <Spell id={106951} name={"Berserk"}/>/<Spell id={102543} name={"Incarnation"}/> and any of these conditions are met:
-    - [*!Tear Open Wounds-AOE] <Spell id={1079} name={"Rips"}/> from <Spell id={285381} name={"Primal Wrath"}/> are in pandemic
+    - [*T31 2P-AOE] !Feral Frenzy! is ready to be used.
+    - [*~T31 4P-AOE] You've talented !Convoke the Spirits! (This keeps !Tiger's Fury! and !391528|Convoke! aligned.)
+- [*Adaptive Swarm-AOE] Use !Adaptive Swarm! when all of these conditions are met:
+    - There isn't an !Adaptive Swarm! heading to an enemy target.
+    - !Adaptive Swarm! is not up on a target.
+- [*Unbridled Swarm-AOE] With !Unbridled Swarm! talented, use !Adaptive Swarm! as often as you can with this priority:
+    - An enemy target has 2 stacks of !Adaptive Swarm!.
+    - An enemy target has 1 stack of !Adaptive Swarm!.
+    - An enemy target does not have !Adaptive Swarm!.
+- [*Incarnation-AOE] Use !102543|Incarnation!
+- [*~Incarnation-AOE] Use !Berserk!
+- [*Convoke the Spirits-AOE] Use !391528|Convoke! if all of the following conditions are met:
+    - Your !Rip!s will not fall off during !391528|Convoke's! channel.
+    - !Tiger's Fury! is up.
+    - [*T31 4P-AOE] !422751|Smoldering Frenzy! is up.
+    - [*T31 2P-AOE] You have 0 or 1 combo points OR !422751|Smoldering Frenzy! would fall off before !391528|Convoke! ends.
+    - [*~T31 2P-AOE] You have 0 or 1 combo points
+- [*Feral Frenzy-AOE] Use !Feral Frenzy! if you have less than 2 combo points and are not in !102543|Incarn!/!Berserk!, or under 3 combo points during !102543|Incarn!/!Berserk!.
+- [*Apex Predator's Craving-AOE] Use !Ferocious Bite! if you have a !Apex Predator's Craving! proc and:
+    - [*~Primal Wrath-AOE] Don't have !Primal Wrath! talented or
+    - Don't have !Sabertooth! up.
+- [*Primal Wrath-AOE] Use !Primal Wrath! if you have 5 combo points, or at least 4 combo points outside of !Berserk!/!102543|Incarnation! and any of these conditions are met:
+    - [*~Tear Open Wounds-AOE] !Rip!s from !Primal Wrath! are in pandemic
     - [*Tear Open Wounds-AOE] You have Tear Open Wounds talented
-    - [*!Rampant Ferocity-AOE] There are at least 5 targets in range
-- [*!Primal Wrath-AOE] Use <Spell id={1079} name={"Rip"}/> on targets without <Spell id={1079} name={"Rip"}/> that will live for a decent amount of time.
-    - Please, I beg you, if you are using <Spell id={1079} name={"Rip"}/> on multiple targets you should seriously be talenting <Spell id={285381} name={"Primal Wrath"}/>. It's as close to mandatory as it gets.
-- Use <Spell id={22568} name={"Ferocious Bite"}/> if you have 5 combo points, or at least 4 combo points outside of <Spell id={106951} name={"Berserk"}/>/<Spell id={102543} name={"Incarnation"}/>.
-- [*Bloodtalons-AOE] **Below this point, skip any spells you've already casted towards <Spell id={319439} name={"Bloodtalons"}/> if inside <Spell id={106951} name={"Berserk"}/>/<Spell id={102543} name={"Incarnation"}/> or if you have 0 or 1 stacks of <Spell id={319439} name={"Bloodtalons"}/>.**
-- [*Brutal Slash-AOE] Use <Spell id={202028} name={"Brutal Slash"}/> if it will cap on charges within the next 4 seconds.
-- [*!Thrashing Claws-AOE] Use <Spell id={106830} name={"Thrash"}/> if in pandemic range and any of these conditions:
-    - You have a <Spell id={16864} name={"Clearcasting"}/> proc
-    - [*Sudden Ambush-AOE] You either do not have <Spell id={391700} name={"Double-Clawed Rake"}/> talented or <Spell id={384667} name={"Sudden Ambush"}/> isn't up
-    - [*!Sudden Ambush-AOE] You do not have <Spell id={391700} name={"Double-Clawed Rake"}/> talented
-- [*Incarnation-AOE] Use <Spell id={102547} name={"Prowl"}/> followed by <Spell id={1822} name={"Rake"}/> on a target where <Spell id={1822} name={"Rake"}/> is either not applied or in pandemic range
-- [*Shadowmeld-AOE] Use <Spell id={58984} name={"Shadowmeld"}/> followed by <Spell id={1822} name={"Rake"}/> on a target where <Spell id={1822} name={"Rake"}/> is either not applied or in pandemic range
-- [*Incarnation-AOE] Use <Spell id={102547} name={"Prowl"}/> followed by <Spell id={1822} name={"Rake"}/> on a target where <Spell id={1822} name={"Rake"}/> does not have a <Spell id={390772} name={"Pouncing Strikes"}/> snapshot
-- [*Shadowmeld-AOE] Use <Spell id={58984} name={"Shadowmeld"}/> followed by <Spell id={1822} name={"Rake"}/> on a target where <Spell id={1822} name={"Rake"}/> does not have a <Spell id={390772} name={"Pouncing Strikes"}/> snapshot
-- Use <Spell id={1822} name={"Rake"}/> on a target with either of these conditions met:
-    - <Spell id={1822} name={"Rake"}/> is not applied or is in pandemic range
-    - [*Sudden Ambush-AOE] You have <Spell id={384667} name={"Sudden Ambush"}/> up and can upgrade the snapshot value of a <Spell id={1822} name={"Rake"}/>
-- [*!Thrashing Claws-AOE] Use <Spell id={106830} name={"Thrash"}/> if in pandemic range
-- [*Brutal Slash-AOE] Use <Spell id={202028} name={"Brutal Slash"}/>
-- [*!Brutal Slash-AOE] Use <Spell id={106785} name={"Swipe"}/> if there are 5 or more targets
-- [*Lunar Inspiration-AOE] Use Lunar Inspiration <Spell id={155625} name={"Moonfire"}/> on a target without <Spell id={155625} name={"Moonfire"}/> or if <Spell id={155625} name={"Moonfire"}/> is in pandemic range and there are less than 5 targets.
-- [*!Brutal Slash-AOE] Use <Spell id={106785} name={"Swipe"}/>.
-- [*Sudden Ambush-AOE] Use <Spell id={5221} name={"Shred"}/> if <Spell id={384667} name={"Sudden Ambush"}/> is not up and:
-    - [*Dire Fixation-AOE]  <Spell id={417710} name={"Dire Fixation"}/> is talented
-    - [*!Dire Fixation-AOE] There are 3 or fewer targets.
-- [*!Sudden Ambush-AOE] Use <Spell id={5221} name={"Shred"}/> if:
-    - [*Dire Fixation-AOE]  <Spell id={417710} name={"Dire Fixation"}/> is talented
-    - [*!Dire Fixation-AOE] There are 3 or fewer targets.
-- [*!Thrashing Claws-AOE] Use <Spell id={106830} name={"Thrash"}/>.
-- [*Bloodtalons-AOE] If you still need <Spell id={319439} name={"Bloodtalons"}/> proc it with this priority:
-    - [*Lunar Inspiration-AOE] Lunar Inspiration <Spell id={155625} name={"Moonfire"}/> if there is a target without <Spell id={155625} name={"Moonfire"}/>.
-    - <Spell id={5221} name={"Shred"}/>
-    - [*Lunar Inspiration-AOE] Lunar Inspiration <Spell id={155625} name={"Moonfire"}/> on the target with the lowest duration.
-    - <Spell id={1822} name={"Rake"}/> ideally on a target where the new snapshot would be at least the same strength as the currently applied <Spell id={1822} name={"Rake"}/>.
-    - [*Thrashing Claws-AOE] <Spell id={106830} name={"Thrash"}/>
+    - [*~Rampant Ferocity-AOE] There are at least 5 targets in range
+- [*~Primal Wrath-AOE] Use !Rip! on targets without !Rip! that will live for a decent amount of time.
+    - Please, I beg you, if you are using !Rip! on multiple targets you should seriously be talenting !Primal Wrath!. It's as close to mandatory as it gets.
+- Use !Ferocious Bite! if you have 5 combo points, or at least 4 combo points outside of !Berserk!/!102543|Incarnation!.
+- [*Bloodtalons-AOE] **Below this point, skip any spells you've already casted towards !Bloodtalons! if inside !Berserk!/!102543|Incarnation! or if you have 0 or 1 stacks of !Bloodtalons!.**
+- [*Brutal Slash-AOE] Use !Brutal Slash! if it will cap on charges within the next 4 seconds.
+- [*~Thrashing Claws-AOE] Use !Thrash! if in pandemic range and any of these conditions:
+    - You have a !Clearcasting! proc
+    - [*Sudden Ambush-AOE] You either do not have !Double-Clawed Rake! talented or !Sudden Ambush! isn't up
+    - [*~Sudden Ambush-AOE] You do not have !Double-Clawed Rake! talented
+- [*Incarnation-AOE] Use !Prowl! followed by !Rake! on a target where !Rake! is either not applied or in pandemic range
+- [*Shadowmeld-AOE] Use !58984|Shadowmeld! followed by !Rake! on a target where !Rake! is either not applied or in pandemic range
+- [*Incarnation-AOE] Use !Prowl! followed by !Rake! on a target where !Rake! does not have a !Pouncing Strikes! snapshot
+- [*Shadowmeld-AOE] Use !58984|Shadowmeld! followed by !Rake! on a target where !Rake! does not have a !Pouncing Strikes! snapshot
+- Use !Rake! on a target with either of these conditions met:
+    - !Rake! is not applied or is in pandemic range
+    - [*Sudden Ambush-AOE] You have !Sudden Ambush! up and can upgrade the snapshot value of a !Rake!
+- [*~Thrashing Claws-AOE] Use !Thrash! if in pandemic range
+- [*Brutal Slash-AOE] Use !Brutal Slash!
+- [*~Brutal Slash-AOE] Use !Swipe! if there are 5 or more targets
+- [*Lunar Inspiration-AOE] Use Lunar Inspiration !Moonfire! on a target without !Moonfire! or if !Moonfire! is in pandemic range and there are less than 5 targets.
+- [*~Brutal Slash-AOE] Use !Swipe!.
+- [*Sudden Ambush-AOE] Use !Shred! if !Sudden Ambush! is not up and:
+    - [*Dire Fixation-AOE]  !Dire Fixation! is talented
+    - [*~Dire Fixation-AOE] There are 3 or fewer targets.
+- [*~Sudden Ambush-AOE] Use !Shred! if:
+    - [*Dire Fixation-AOE]  !Dire Fixation! is talented
+    - [*~Dire Fixation-AOE] There are 3 or fewer targets.
+- [*~Thrashing Claws-AOE] Use !Thrash!.
+- [*Bloodtalons-AOE] If you still need !Bloodtalons! proc it with this priority:
+    - [*Lunar Inspiration-AOE] Lunar Inspiration !Moonfire! if there is a target without !Moonfire!.
+    - !Shred!
+    - [*Lunar Inspiration-AOE] Lunar Inspiration !Moonfire! on the target with the lowest duration.
+    - !Rake! ideally on a target where the new snapshot would be at least the same strength as the currently applied !Rake!.
+    - [*Thrashing Claws-AOE] !Thrash!
 
 # 3. Talents:
 
@@ -256,7 +259,7 @@ The way this section is written is very formulaic and has the same structure as 
 
 ### Vault of the Incarnates Raid Boss Talents
 [Eranog](https://www.wowhead.com/talent-calc/druid/feral/DARAUEEBCYZCFRUExRQQBROVRQRRUVFVIVVBQCFU)
-- You can alternatively play a more single-target oriented build, or if your guild one-phases the boss can drop <Spell id={391174} name={"Berserk: Heart of the Lion"}/> for another talent point, and most likely 1 minute convoke with that.
+- You can alternatively play a more single-target oriented build, or if your guild one-phases the boss can drop !Berserk: Heart of the Lion! for another talent point, and most likely 1 minute convoke with that.
 
 [The Primal Council](https://www.wowhead.com/talent-calc/druid/feral/DARAUEEBCYZCFRUExRQQBROURURVQVFVYRVBQCFE)
 - Full sustain AoE. Can consider going Unbridled Swarm as well.
@@ -307,7 +310,7 @@ The way this section is written is very formulaic and has the same structure as 
 
 ### Amirdrassil Raid Boss Talents
 [Gnarlroot](https://www.wowhead.com/talent-calc/druid/feral/DARAUEEBCQpCFREExhUQBROVVARRUVFVoRVAQCBV)
-- If you need more AOE, swap <Spell id={390902} name={"Carnivorous Instincts"}/> to <Spell id={400320} name={"Circle"}/>. You can also play full single-target if adds don't feel like an issue.
+- If you need more AOE, swap !Carnivorous Instinct! to !400320|Circle!. You can also play full single-target if adds don't feel like an issue.
 
 [Igira](https://www.wowhead.com/talent-calc/druid/feral/DAREUEEBCQZCFREExhUQBROVFAVRUVFVKVRAQCBU)
 - Play full single-target, the spears will die too fast for Primal Wrath to be worth it in most cases. Frenzied Regen can be useful for clearing the healing absorb.
@@ -339,26 +342,26 @@ The way this section is written is very formulaic and has the same structure as 
 ### T31 Raid Talent Customisation
 
 
-In the first two gates, you can freely swap between <Spell id={231063} name={"Merciless Claws"}/>, <Spell id={383352} name={"Tireless Energy"}/>, <Spell id={48484} name={"Infected Wounds"}/>, and <Spell id={285381} name={"Primal Wrath"}/>, based on what you need.
-- <Spell id={231063} name={"Merciless Claws"}/> is the strongest burst option of these nodes, and only slightly behind in sustained single-target and cleave.
-- <Spell id={48484} name={"Infected Wounds"}/> for stronger sustained single-target, or if multi-dotting with Rake.
-- <Spell id={383352} name={"Tireless Energy"}/> for strong single-target and solid in cleave and AoE, but weaker for burst. You should also adjust points if you are overcapping energy via <Spell id={391881} name={"Apex"}/> procs or downtime due to mechanics. 
-- <Spell id={285381} name={"Primal Wrath"}/> if there are regular adds that need to die, or adds that can provide funnel opportunities with <Spell id={391881} name={"Apex"}/>.
-- Note: <Spell id={391785} name={"Tear Open Wounds"}/> and <Spell id={391700} name={"Double-Clawed Rake"}/> are additional options particularly for sustained AoE/cleave (Council), or if your raid is struggling with certain adds. 
+In the first two gates, you can freely swap between !Merciless Claws!, !Tireless Energy!, !Infected Wounds!, and !Primal Wrath!, based on what you need.
+- !Merciless Claws! is the strongest burst option of these nodes, and only slightly behind in sustained single-target and cleave.
+- !Infected Wounds! for stronger sustained single-target, or if multi-dotting with Rake.
+- !Tireless Energy! for strong single-target and solid in cleave and AoE, but weaker for burst. You should also adjust points if you are overcapping energy via !391881|Apex! procs or downtime due to mechanics. 
+- !Primal Wrath! if there are regular adds that need to die, or adds that can provide funnel opportunities with !391881|Apex!.
+- Note: !Tear Open Wounds! and !Double-Clawed Rake! are additional options particularly for sustained AoE/cleave (Council), or if your raid is struggling with certain adds. 
 
-Final gate options: swap between <Spell id={390902} name={"Carnivorous Instincts"}/>, <Spell id={400320} name={"Circle of Life and Death"}/>, <Spell id={421432} name={"Saber Jaws"}/>, <Spell id={391347} name={"Rip & Tear"}/>, 1 minute <Spell id={391548} name={"Convoke the Spirits"}/>, and <Spell id={391889} name={"Swarm"}/>, as needed.
-- <Spell id={400320} name={"Circle"}/>: generally worth grabbing if taking <Spell id={285381} name={"Primal Wrath"}/> with <Spell id={391881} name={"Apex"}/>, or if there's a lot of multi-dot potential.
-- <Spell id={390902} name={"Carnivorous Instincts"}/>: strong burst, with good single-target and AoE. Predator resets and high <Spell id={5217} name={"Tiger's Fury"}/> uptime add value here.
-- <Spell id={421432} name={"Saber Jaws"}/>: strong single-target pathing option to <Spell id={391881} name={"Apex"}/>. 
-- <Spell id={391347} name={"Rip & Tear"}/>: cleave and AoE pathing option to <Spell id={391881} name={"Apex"}/>, not too far behind on single-target vs Saber Jaws with Convoke as it lets you spend another point elsewhere.
-- 1m <Spell id={391548} name={"Convoke the Spirits"}/>: if you need more frequent burst, or are just a gambling addict. Your Kill times will also play a significant factor. For instance, if your raids kill time aligns better with the cooldown of 1 minute Convoke (odd e.g. 5:31) compared to 2 minute Convoke (even e.g. 4:31).
-- <Spell id={391889} name={"Swarm"}/>: incredibly strong single-target synergy with tier-set, can drop at times for heavy AoE.
+Final gate options: swap between !Carnivorous Instinct!, !Circle of Life and Death!, !Saber Jaws!, !Rip and Tear!, 1 minute !Convoke the Spirits!, and !Adaptive Swarm!, as needed.
+- !400320|Circle!: generally worth grabbing if taking !Primal Wrath! with !391881|Apex!, or if there's a lot of multi-dot potential.
+- !Carnivorous Instinct!: strong burst, with good single-target and AoE. Predator resets and high !Tiger's Fury! uptime add value here.
+- !Saber Jaws!: strong single-target pathing option to !391881|Apex!. 
+- !Rip and Tear!: cleave and AoE pathing option to !391881|Apex!, not too far behind on single-target vs Saber Jaws with Convoke as it lets you spend another point elsewhere.
+- 1m !Convoke the Spirits!: if you need more frequent burst, or are just a gambling addict. Your Kill times will also play a significant factor. For instance, if your raids kill time aligns better with the cooldown of 1 minute Convoke (odd e.g. 5:31) compared to 2 minute Convoke (even e.g. 4:31).
+- !Adaptive Swarm!: incredibly strong single-target synergy with tier-set, can drop at times for heavy AoE.
 
  
 ### Class Tree Talents for Raid
 
 - *Coming soon with specific boss builds. 
-- For now: remember to take <Spell id={29166} name={"Innervate"}/>!! You can cast in Cat Form now, and your healers will need it as the Rashok healer trinket has been nerfed.
+- For now: remember to take !Innervate!! You can cast in Cat Form now, and your healers will need it as the Rashok healer trinket has been nerfed.
 
  
 ## Dungeon Talents
@@ -377,40 +380,40 @@ The builds listed here are only a sample, and can be customised significantly. V
 
 ### [M+ Talent Customisation](#m+)
 
-![Mythic](/static/images/feral-tree-mythic+.png)
+~[Mythic](/static/images/feral-tree-mythic+.png)
 
 Note: for Feral, the talents in the first two gates have similar power-levels, and you can freely distribute extra points how you please here, up until you have spent 20 points. The final gate has stronger nodes and you should always spend the maximum points possible here (10).
 
 Options for the first two gates:
-- <Spell id={391700} name={"Double-Clawed Rake"}/> -> <Spell id={391709} name={"Rampant Ferocity"}/>: this comes down to pull size; DCR particularly excels in low and medium (pug) size pulls and is generally the better choice, however RF can pull ahead with large pulls e.g. in a dungeon with dense trash or with an organised group doing consistent triple~ pulls.
-- <Spell id={391700} name={"Double-Clawed Rake"}/> -> <Spell id={384665} name={"Taste for Blood"}/>: if you want more single target, TFB is a great option e.g. for Tyrannical weeks, while also providing some funnel value on trash.
-- <Spell id={391785} name={"Tear Open Wounds"}/> -> <Spell id={391709} name={"Rampant Ferocity"}/>: if your goal is purely to funnel, you can change to RF and spend your finishers on Bite while only using <Spell id={285381} name={"Primal Wrath"}/> to maintain <Spell id={1079} name={"Rip"}/> in AoE. This is somewhat more advanced with more consideration for energy and combo points, and requires you to break 'primal wrath spam' muscle memory.
-- <Spell id={48484} name={"Infected Wounds"}/> -> <Spell id={384665} name={"Taste for Blood"}/>: if you are not running Double-clawed Rake, Taste for Blood is a great option that offers a prominent single target gain over Infected Wounds this patch as a result of the <Spell id={391881} name={"Apex"}/> changes. Even moreso if running <Spell id={391528} name={"Convoke the Spirits"}/>.
-- <Spell id={384665} name={"Taste for Blood"}/> -> <Spell id={417710} name={"Dire Fixation"}/>: both are great single-target options, you can run Taste for Blood for more funnel (via Apex) and burst with Convoke.
-- <Spell id={417710} name={"Dire Fixation"}/> -> <Spell id={391709} name={"Rampant Ferocity"}/>: you can run both Tear Open Wounds and Rampant Ferocity together if it is an AOE heavy dungeon, but single-target will be lower without Dire Fixation or Taste for Blood.
+- !Double-Clawed Rake! -> !Rampant Ferocity!: this comes down to pull size; DCR particularly excels in low and medium (pug) size pulls and is generally the better choice, however RF can pull ahead with large pulls e.g. in a dungeon with dense trash or with an organised group doing consistent triple~ pulls.
+- !Double-Clawed Rake! -> !Taste for Blood!: if you want more single target, TFB is a great option e.g. for Tyrannical weeks, while also providing some funnel value on trash.
+- !Tear Open Wounds! -> !Rampant Ferocity!: if your goal is purely to funnel, you can change to RF and spend your finishers on Bite while only using !Primal Wrath! to maintain !Rip! in AoE. This is somewhat more advanced with more consideration for energy and combo points, and requires you to break 'primal wrath spam' muscle memory.
+- !Infected Wounds! -> !Taste for Blood!: if you are not running Double-clawed Rake, Taste for Blood is a great option that offers a prominent single target gain over Infected Wounds this patch as a result of the !391881|Apex! changes. Even moreso if running !Convoke the Spirits!.
+- !Taste for Blood! -> !Dire Fixation!: both are great single-target options, you can run Taste for Blood for more funnel (via Apex) and burst with Convoke.
+- !Dire Fixation! -> !Rampant Ferocity!: you can run both Tear Open Wounds and Rampant Ferocity together if it is an AOE heavy dungeon, but single-target will be lower without Dire Fixation or Taste for Blood.
 
 Options for the final gate:
-- <Spell id={319439} name={"Bloodtalons"}/> vs <Spell id={391972} name={"Lion's Strength"}/>: in 10.2, BT gains a lot of quality of life when changing to the new tier-set, in addition to the <Spell id={391881} name={"Apex"}/> change with procs slowing down slightly in AoE. This combined with the 10.1 change of 3 charges makes BT feel smooth to play in season 3 M+. However, Lion's Strength is still a competitive option and only a small DPS loss while allowing you to focus on other things. If you are fairly new to Feral, you should start with Lion's Strength and swap to Bloodtalons when you have learnt everything else.
-- <Spell id={391528} name={"Convoke the Spirits"}/> vs <Spell id={102543} name={"Incarnation"}/>: both talents are equally viable and will depend on your talents, gear, dungeon, and own preference. Convoke is very strong with Witherbark's Branch or similar on-use trinkets, and similarly should be played if dropping Rake talents such as Infected Wounds (as Incarn wants Rake talents), while Incarn can pull ahead with larger pulls. These two options are interchangeable though and there is no all-round 'best.' 
-- 1 min <Spell id={391548} name={"Convoke"}/>: generally worse than 2m, however is a competitive option if running <Spell id={391709} name={"Rampant Ferocity"}/>. Drop Carnivorous Instincts/Swarm for it.
-- <Spell id={390902} name={"Carnivorous Instincts"}/> vs <Spell id={391889} name={"Swarm"}/>: CI is your 'safe' all-round good pick, however Swarm is a very strong single-target option and should be considered for Tyrannical.
-- <Spell id={391951} name={"Unbridled Swarm"}/>: for a talent that undersims, this is simming competitively with the more standard builds. In other words: this is looking to be very, very good this patch. Take in medium pull size dungeons.
-- Honourable mention: <Spell id={391978} name={"Veinripper"}/> can be a good funnel option if playing a <Spell id={391709} name={"Rampant Ferocity"}/>-focused build and focusing on ethical prio-damage.
+- !Bloodtalons! vs !Lion's Strength!: in 10.2, BT gains a lot of quality of life when changing to the new tier-set, in addition to the !391881|Apex! change with procs slowing down slightly in AoE. This combined with the 10.1 change of 3 charges makes BT feel smooth to play in season 3 M+. However, Lion's Strength is still a competitive option and only a small DPS loss while allowing you to focus on other things. If you are fairly new to Feral, you should start with Lion's Strength and swap to Bloodtalons when you have learnt everything else.
+- !Convoke the Spirits! vs !102543|Incarnation!: both talents are equally viable and will depend on your talents, gear, dungeon, and own preference. Convoke is very strong with Witherbark's Branch or similar on-use trinkets, and similarly should be played if dropping Rake talents such as Infected Wounds (as Incarn wants Rake talents), while Incarn can pull ahead with larger pulls. These two options are interchangeable though and there is no all-round 'best.' 
+- 1 min !391528|Convoke!: generally worse than 2m, however is a competitive option if running !Rampant Ferocity!. Drop Carnivorous Instincts/Swarm for it.
+- !Carnivorous Instinct! vs !Adaptive Swarm!: CI is your 'safe' all-round good pick, however Swarm is a very strong single-target option and should be considered for Tyrannical.
+- !Unbridled Swarm!: for a talent that undersims, this is simming competitively with the more standard builds. In other words: this is looking to be very, very good this patch. Take in medium pull size dungeons.
+- Honourable mention: !Veinripper! can be a good funnel option if playing a !Rampant Ferocity!-focused build and focusing on ethical prio-damage.
 
  
 ### M+ Class Tree
 
-![MythicClass](/static/images/feral-class-tree-mythic+.png)
+~[MythicClass](/static/images/feral-class-tree-mythic+.png)
 
 The druid tree offers a fair degree of customisation as Feral in M+, with a range of utility and defensive options. What is selected (yellow) is mandatory, with blue nodes being your options based on affixes or personal preference. 
 
-- <Spell id={2782} name={"Remove Corruption"}/> for Afflicted weeks. Additionally, the following dungeons have poison and curse dispels: Atal'Dazar, Darkheart Thicket, Throne of the Tides, and Waycrest Manor.
-- <Spell id={2637} name={"Hibernate"}/> for Incorporeal weeks.
-- <Spell id={391528} name={"Nature's Vigil"}/> is still very strong in AoE, and will often keep you alive or minimise the need to Regrowth on big pulls, increasing your DPS. Over the dungeon it usually does more personal healing to you than any other talent, while also healing your group mates. Macro to Berserk/Incarn. 
-- <Spell id={378986} name={"Protector of the Pack"}/> is a strong self-healing node for Feral, and gains even more value if you can occasionally utilise it to heal your group as well.
-- <Spell id={33873} name={"Nurturing Instinct"}/> should only be considered if Beekeeping for small DPS and HPS gains.
-- <Spell id={131768} name={"Feline Swiftness"}/> is commonly dropped in high-end for more defensives and utility, as Catform gives 30% speed baseline which is more than enough for dungeon mechanics. If uncomfortable, try only dropping 1 point at first to retain 8%.
-- <Spell id={377842} name={"Ursine Vigor"}/> is more of a high-key talent to survive one-shots.
+- !Remove Corruption! for Afflicted weeks. Additionally, the following dungeons have poison and curse dispels: Atal'Dazar, Darkheart Thicket, Throne of the Tides, and Waycrest Manor.
+- !Hibernate! for Incorporeal weeks.
+- !Nature's Vigil! is still very strong in AoE, and will often keep you alive or minimise the need to Regrowth on big pulls, increasing your DPS. Over the dungeon it usually does more personal healing to you than any other talent, while also healing your group mates. Macro to Berserk/Incarn. 
+- !Protector of the Pack! is a strong self-healing node for Feral, and gains even more value if you can occasionally utilise it to heal your group as well.
+- !Nurturing Instinct! should only be considered if Beekeeping for small DPS and HPS gains.
+- !Feline Swiftness! is commonly dropped in high-end for more defensives and utility, as Catform gives 30% speed baseline which is more than enough for dungeon mechanics. If uncomfortable, try only dropping 1 point at first to retain 8%.
+- !Ursine Vigor! is more of a high-key talent to survive one-shots.
 
 # 4. Consumables:
 
@@ -430,7 +433,7 @@ You can also use secondary food such as [Feisty Fish Sticks](https://www.wowhead
 
 ## Runes
 
-I apoogize for being annoying but, sim your character for the most accurate answer. Generally <Spell id={391528} name={"Convoke"}/> builds do not want to play [Howling Rune](https://www.wowhead.com/item=194819/howling-rune) in single target if that is any consolation-but even that's not a guarantee. Make sure you select Rune (stat) (Main Hand) else it may not sim properly. ie: Buzzing (Crit) (Main Hand). Crit is the default setting.
+I apoogize for being annoying but, sim your character for the most accurate answer. Generally ~Convoke! builds do not want to play [Howling Rune](https://www.wowhead.com/item=194819/howling-rune) in single target if that is any consolation-but even that's not a guarantee. Make sure you select Rune (stat) (Main Hand) else it may not sim properly. ie: Buzzing (Crit) (Main Hand). Crit is the default setting.
 
 
 # 5. Gearing:
@@ -535,12 +538,12 @@ There are a LOT of trinkets in season 4, below includes only the very best. Plea
 
 ## What is snapshotting?
 
-Snapshotting is when a buff that is present when a bleed is applied is maintained over the duration of the bleed, as opposed to buffing dots while the buff is up. For instance, if you <Spell id={1822} name={"Rake"}/> a target, and then press <Spell id={5217} name={"Tiger's Fury"}/>, the <Spell id={1822} name={"Rake"}/> will not be buffed by <Spell id={5217} name={"Tiger's Fury"}/>. However, if you <Spell id={5217} name={"Tiger's Fury"}/> and then <Spell id={1822} name={"Rake"}/>, that <Spell id={1822} name={"Rake"}/> will be amplified by <Spell id={5217} name={"Tiger's Fury"}/> even after <Spell id={5217} name={"Tiger's Fury"}/> falls off.
+Snapshotting is when a buff that is present when a bleed is applied is maintained over the duration of the bleed, as opposed to buffing dots while the buff is up. For instance, if you !Rake! a target, and then press !Tiger's Fury!, the !Rake! will not be buffed by !Tiger's Fury!. However, if you !Tiger's Fury! and then !Rake!, that !Rake! will be amplified by !Tiger's Fury! even after !Tiger's Fury! falls off.
 
-Rake snapshots <Spell id={5217} name={"Tiger's Fury"}/> and Stealth (including <Spell id={384667} name={"Sudden Ambush"}/>, see: <Spell id={390772} name={"Pouncing Strikes"}/>)
-Rip snapshots <Spell id={5217} name={"Tiger's Fury"}/> and <Spell id={319439} name={"Bloodtalons"}/>
-Thrash snapshots <Spell id={5217} name={"Tiger's Fury"}/> and <Spell id={236068} name={"Moment of Clarity"}/>
-Moonfire (Lunar Inspiration) snapshots <Spell id={5217} name={"Tiger's Fury"}/>
+Rake snapshots !Tiger's Fury! and Stealth (including !Sudden Ambush!, see: !Pouncing Strikes!)
+Rip snapshots !Tiger's Fury! and !Bloodtalons!
+Thrash snapshots !Tiger's Fury! and !Moment of Clarity!
+Moonfire (Lunar Inspiration) snapshots !Tiger's Fury!
 
 If you have a Weakaura that tracks snapshot strength, it works as follows:
 Green/higher than 100: Reapplying the bleed now would make it stronger
@@ -558,7 +561,7 @@ Pandemic is a mechanic that most damage-over-time spells have. When you cast a d
 
 None of these macros are required by any means, just a few that can be useful for some people.
 
-**Macro combining Lunar Inspiration <Spell id={155625} name={"Moonfire"}/> and <Spell id={391528} name={"Convoke"}/> to one bind:**
+**Macro combining Lunar Inspiration !Moonfire! and !391528|Convoke! to one bind:**
 
 ```
 #showtooltip
@@ -643,13 +646,13 @@ An addon alternative. See the description for more details. This can also show s
 Search through these to see what you like, these Plater mods help identify which targets have your rake on them at a glance.
 
 [Apex Predator's Craving by Marvel](https://wago.io/KzSX7dDMM)
-Alerts you when you have an <Spell id={391881} name={"Apex Predator's Craving"}/> (free bite) proc with a glowing icon and a sound.
+Alerts you when you have an !Apex Predator's Craving! (free bite) proc with a glowing icon and a sound.
 
 [Adaptive Swarm Helper by KnewOne](https://wago.io/0P93t1-nG)
 See the description of the WA for more details. This will assist you with using Adaptive Swarm, including Unbridled Swarm support for ally targeting.
 
 [Bloodtalons Tracker from Fore's pack](https://wago.io/cQkL9nrAw)
-This tracks your progress towards procing <Spell id={319439} name={"Bloodtalons"}/>, showing the 4 second timer for each spell you cast towards it.
+This tracks your progress towards procing !Bloodtalons!, showing the 4 second timer for each spell you cast towards it.
 
 [Bloodtalons Tracker from Cheesey's pack](https://wago.io/zinn-QaFI)
 Additional BT tracker.

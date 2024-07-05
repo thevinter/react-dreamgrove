@@ -4,7 +4,7 @@ import { CheckboxContext } from './CheckboxProvider'
 
 const toggleText = (state, id) => {
   const elements = document.querySelectorAll<HTMLElement>(`[id^="${id}"]`)
-  const negativeElements = document.querySelectorAll<HTMLElement>(`[id^="!${id}"]`)
+  const negativeElements = document.querySelectorAll<HTMLElement>(`[id^="~${id}"]`)
   elements.forEach((element) => {
     element.style.display = state ? 'list-item' : 'none'
   })
