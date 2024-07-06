@@ -22,8 +22,8 @@ module.exports = {
         14: '3.5rem',
       },
       fontSize: {
-        base: '1.2rem',
-        sm: '1.1rem',
+        base: '1rem',
+        sm: '0.9rem',
       },
       fontFamily: {
         sans: ['thiccboi', ...fontFamily.sans],
