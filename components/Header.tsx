@@ -16,7 +16,7 @@ const Header = () => {
   const route = usePathname()
 
   return (
-    <header className="flex items-center justify-between py-6">
+    <header className="flex items-end justify-between py-6">
       <div>
         <Link href="/" aria-label={siteMetadata.headerTitle}>
           <div className="flex items-start justify-between">
@@ -40,7 +40,7 @@ const Header = () => {
             <Link
               key={link.title}
               href={link.href}
-              className="dark:hover:text-primary-400 hidden font-medium text-gray-900 hover:text-primary-500 dark:text-gray-100
+              className="dark:hover:text-primary-400 hidden text-xl text-gray-900 hover:text-primary-500 dark:text-gray-100
               sm:block"
             >
               {link.title}

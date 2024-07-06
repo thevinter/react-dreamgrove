@@ -1,26 +1,25 @@
 import 'css/prism.css'
 import 'katex/dist/katex.css'
 
-import PageTitle from '@/components/PageTitle'
 import { components } from '@/components/MDXComponents'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
-import { allDungeons } from 'contentlayer/generated'
-import type { Dungeons } from 'contentlayer/generated'
+import { coreContent, allCoreContent } from 'pliny/utils/contentlayer'
+import { allRaids } from 'contentlayer/generated'
+import type { Authors, Blog, Dungeons, Raids } from 'contentlayer/generated'
 import PostSimple from '@/layouts/PostSimple'
 import PostLayout from '@/layouts/PostLayout'
 import PostBanner from '@/layouts/PostBanner'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
-import DungeonLayout from '@/layouts/DungeonLayout'
+import RaidLayout from '@/layouts/RaidLayout'
 
-const defaultLayout = 'DungeonLayout'
+const defaultLayout = 'RaidLayout'
 const layouts = {
   PostSimple,
   PostLayout,
   PostBanner,
-  DungeonLayout,
+  RaidLayout,
 }
 
 export async function generateMetadata({
@@ -29,7 +28,7 @@ export async function generateMetadata({
   params: { slug: string[] }
 }): Promise<Metadata | undefined> {
   const slug = decodeURI(params.slug.join('/'))
-  const post = allDungeons.find((p) => p.slug === slug)
+  const post = allRaids.find((p) => p.slug === slug)
 
   if (!post) {
     return
@@ -64,11 +63,11 @@ export async function generateMetadata({
 }
 
 export const generateStaticParams = async () => {
-  return allDungeons.map((p) => ({ slug: p.slug.split('/').map((name) => decodeURI(name)) }))
+  return allRaids.map((p) => ({ slug: p.slug.split('/').map((name) => decodeURI(name)) }))
 }
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const slug = decodeURI(params.slug.join('/'))
-  const sortedCoreContents = allCoreContent(allDungeons)
+  const sortedCoreContents = allCoreContent(allRaids)
   const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug)
 
   if (postIndex === -1) {
@@ -77,7 +76,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
   const prev = sortedCoreContents[postIndex + 1]
   const next = sortedCoreContents[postIndex - 1]
-  const post = allDungeons.find((p) => p.slug === slug) as Dungeons
+  const post = allRaids.find((p) => p.slug === slug) as Raids
 
   const mainContent = coreContent(post)
   const jsonLd = post.structuredData
