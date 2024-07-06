@@ -32,7 +32,7 @@ export default function DungeonListLayout({
         <ul className="grid grid-cols-1 gap-8 pt-10 md:grid-cols-2">
           {!posts.length && 'No posts found.'}
           {displayPosts.map((post) => {
-            const { path, date, title, summary, tags, headerImage } = post
+            const { path, title, headerImage } = post
             return (
               <li key={path}>
                 <InstanceCard title={title} headerImage={`dungeons/${headerImage}`} path={path} />
