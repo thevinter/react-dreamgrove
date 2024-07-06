@@ -52,6 +52,17 @@ module.exports = {
             code: {
               color: theme('colors.indigo.500'),
             },
+            h1: {
+              marginBottom: '0px',
+              display: 'flex',
+              alignItems: 'center',
+              '@screen sm': {
+                marginLeft: '-2.3rem',
+              },
+            },
+            h2: {
+              marginTop: '10px',
+            },
           },
         },
         invert: {

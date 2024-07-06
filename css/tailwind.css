@@ -49,3 +49,10 @@ input:-webkit-autofill:focus {
   display: inline-block;
   vertical-align: middle;
 }
+
+h1.content-header::before {
+  counter-increment: heading;
+  content: counter(heading) '. ';
+  min-width: 1.5ch;
+  text-align: left;
+}

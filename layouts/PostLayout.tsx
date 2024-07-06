@@ -82,7 +82,12 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               id="main"
               className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-9 xl:pb-0"
             >
-              <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
+              <div
+                style={{ counterReset: 'heading' }}
+                className="prose ml-2 max-w-none pb-8 pt-10 dark:prose-invert"
+              >
+                {children}
+              </div>
               {siteMetadata.comments && (
                 <div
                   className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
