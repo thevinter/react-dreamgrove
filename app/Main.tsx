@@ -25,11 +25,15 @@ export default function Home() {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 pt-8 lg:grid-cols-2 ">
+      <div className="grid grid-cols-1 gap-4 pt-0 sm:pt-4 lg:grid-cols-2 ">
         {images.map((image, index) => (
           <Link key={index} href={image.href}>
             <div
-              className={`relative block ${image.active ? 'cursor-pointer hover:scale-[1.02]' : 'cursor-default opacity-50'} transition-transform duration-300`}
+              className={`relative block ${
+                image.active
+                  ? 'cursor-pointer hover:scale-[1.02] hover:shadow-lg'
+                  : 'cursor-default opacity-50'
+              } shadow-md transition-transform duration-300`}
             >
               <Image
                 src={image.src}
@@ -45,11 +49,15 @@ export default function Home() {
         ))}
       </div>
       {ENABLE_EXTRA_GUIDES && (
-        <div className="grid grid-cols-1 gap-4 md:pt-8">
+        <div className="grid grid-cols-1 gap-4 pt-4 md:pt-6">
           {content.map((image, index) => (
             <Link key={index} href={image.href}>
               <div
-                className={`relative block ${image.active ? 'cursor-pointer hover:scale-[1.02]' : 'cursor-default opacity-50'} transition-transform duration-300`}
+                className={`relative block ${
+                  image.active
+                    ? 'cursor-pointer hover:scale-[1.02] hover:shadow-xl'
+                    : 'cursor-default opacity-50'
+                } shadow-md transition-transform duration-300`}
               >
                 <Image
                   src={image.src}

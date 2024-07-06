@@ -22,7 +22,11 @@ const MobileNav = () => {
 
   return (
     <>
-      <button aria-label="Toggle Menu" onClick={onToggleNav} className="sm:hidden">
+      <button
+        aria-label="Toggle Menu"
+        onClick={onToggleNav}
+        className="mt-[2px] align-middle sm:hidden"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
@@ -37,7 +41,7 @@ const MobileNav = () => {
         </svg>
       </button>
       <Transition appear show={navShow} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={onToggleNav}>
+        <Dialog as="div" className="fixed inset-0 z-30" onClose={onToggleNav}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"

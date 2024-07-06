@@ -22,7 +22,7 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        sans: ['thiccboi', ...fontFamily.sans],
         thiccboi: ['thiccboi', 'sans-serif'],
       },
       colors: {
@@ -38,7 +38,11 @@ module.exports = {
           css: {
             a: {
               color: theme('colors.primary.500'),
+              textUnderlineOffset: '4px',
+              textDecorationStyle: 'dashed',
+              fontWeight: '500',
               '&:hover': {
+                textDecorationStyle: 'solid',
                 color: `${theme('colors.primary.600')}`,
               },
               code: { color: theme('colors.primary.400') },
@@ -55,14 +59,26 @@ module.exports = {
             },
             h1: {
               marginBottom: '0px',
+              marginTop: '50px',
               display: 'flex',
+              flexWrap: 'wrap',
               alignItems: 'center',
               '@screen sm': {
                 marginLeft: '-2.3rem',
               },
             },
             h2: {
-              marginTop: '10px',
+              marginTop: '25px',
+              marginBottom: '10px',
+              position: 'relative',
+            },
+            'h2::after': {
+              content: '""',
+              display: 'block',
+              width: '50px',
+              height: '3px',
+              backgroundColor: '#d57f43',
+              marginTop: '0px',
             },
           },
         },

@@ -29,7 +29,7 @@ export default function DungeonListLayout({
             {title}
           </h1>
         </div>
-        <ul className="grid grid-cols-1 gap-8 pt-10 md:grid-cols-2">
+        <ul className="grid grid-cols-1 gap-4 pt-8 md:grid-cols-2">
           {!posts.length && 'No posts found.'}
           {displayPosts.map((post) => {
             const { path, title, headerImage } = post

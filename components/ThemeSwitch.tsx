@@ -57,7 +57,7 @@ const ThemeSwitch = () => {
     <div className="mr-5">
       <Menu as="div" className="relative inline-block text-left">
         <div className="dark:hover:text-primary-400 hover:text-primary-500">
-          <Menu.Button>
+          <Menu.Button className="align-middle">
             {mounted ? resolvedTheme === 'dark' ? <Moon /> : <Sun /> : <Blank />}
           </Menu.Button>
         </div>

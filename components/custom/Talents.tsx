@@ -34,7 +34,7 @@ export default function Talents({ name, talents, mimiron = false }) {
   }, [])
 
   return (
-    <div>
+    <div className="mb-4">
       <div
         onClick={() => setIsVisible(!isVisible)}
         style={{
@@ -42,10 +42,13 @@ export default function Talents({ name, talents, mimiron = false }) {
           justifyContent: 'space-between',
           alignItems: 'center',
           cursor: 'pointer',
+          height: 'auto',
           borderBottom: '2px solid white', // White underline
         }}
       >
-        <h3 onClick={() => setIsVisible(!isVisible)}>{name}</h3>
+        <h3 className="my-2" onClick={() => setIsVisible(!isVisible)}>
+          {name}
+        </h3>
         {arrow}
       </div>
       <div className={`iframe-container ${isVisible ? 'show' : 'hide'}`}>

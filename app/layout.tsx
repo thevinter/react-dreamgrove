@@ -77,19 +77,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-[#282828] dark:text-white">
-        <ThemeProviders>
-          <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
-          <SectionContainer>
-            <div className="flex h-screen flex-col justify-between font-sans">
+      <body className="flex h-screen bg-[#F2F3F4] text-black antialiased dark:bg-[#282828] dark:text-white">
+        <div className="flex h-full w-full flex-col ">
+          <ThemeProviders>
+            <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
+            <Header />
+            <SectionContainer>
               <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
-                <Header />
                 <main className="mb-auto">{children}</main>
               </SearchProvider>
               <Footer />
-            </div>
-          </SectionContainer>
-        </ThemeProviders>
+            </SectionContainer>
+          </ThemeProviders>
+        </div>
         <Script src="/static/scripts/tooltip.js" strategy="afterInteractive" />
       </body>
     </html>

@@ -59,5 +59,18 @@ h1.content-header::before {
 
 @font-face {
   font-family: 'thiccboi';
+  src: url('../public/fonts/THICCCBOI-ExtraBold.woff2') format('woff2');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'thiccboi';
   src: url('../public/fonts/THICCCBOI-Bold.woff2') format('woff2');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'thiccboi';
+  src: url('../public/fonts/THICCCBOI-Regular.woff2') format('woff2');
+  font-weight: 400;
 }

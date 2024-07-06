@@ -7,6 +7,7 @@ import SectionContainer from '@/components/SectionContainer'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { FaArrowLeft } from 'react-icons/fa'
 import ContributeHeader from '@/components/custom/ContributeHeader'
+import RoleSelector from '@/components/custom/Dungeons/RoleSelector'
 
 interface LayoutProps {
   content: CoreContent<Dungeons>
@@ -44,6 +45,7 @@ export default function DungeonLayout({ content, authorDetails, children }: Layo
               id="main"
               className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-12 xl:pb-0"
             >
+              <RoleSelector />
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
             </div>
           </div>

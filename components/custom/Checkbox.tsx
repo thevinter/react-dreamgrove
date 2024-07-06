@@ -13,7 +13,7 @@ const toggleText = (state, id) => {
   })
 }
 
-const Checkbox = ({ id, spellId = '', name, defaultCheck = false, radio = '' }) => {
+const Checkbox = ({ id, spellId = '', name = '', defaultCheck = false, radio = '', children }) => {
   const [checked, setChecked] = useState(defaultCheck)
   const { radioGroup, checkRadio, registerCheckbox } = useContext(CheckboxContext)
 
@@ -42,6 +42,17 @@ const Checkbox = ({ id, spellId = '', name, defaultCheck = false, radio = '' }) 
       setChecked(true)
     }
   }, [radioGroup, radio, id])
+
+  if (spellId == '' && name == '') {
+    return (
+      <p className="mb-2 mt-2">
+        <label>
+          <input type="checkbox" checked={checked} onChange={() => handleToggle(!checked)} />
+          <span className="pl-4">{children}</span>
+        </label>
+      </p>
+    )
+  }
 
   return (
     <p className="mb-2 mt-2">

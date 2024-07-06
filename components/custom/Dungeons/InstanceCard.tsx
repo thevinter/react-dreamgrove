@@ -7,7 +7,7 @@ import Image from 'next/image'
 const InstanceCard = ({ title, headerImage, path }) => {
   return (
     <Link
-      className="relative block overflow-hidden rounded-lg border border-gray-300"
+      className="relative block cursor-pointer overflow-hidden rounded-lg shadow-md  transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl"
       href={`/${path}`}
     >
       <div className="relative h-48 w-full">
@@ -22,7 +22,9 @@ const InstanceCard = ({ title, headerImage, path }) => {
           }}
         />
       </div>
-      <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 p-2 text-white">{title}</div>
+      <div className="font-thiccboi absolute bottom-0 left-0 bg-black bg-opacity-50 p-2 text-xl text-white">
+        {title}
+      </div>
     </Link>
   )
 }
