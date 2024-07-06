@@ -56,3 +56,8 @@ h1.content-header::before {
   min-width: 1.5ch;
   text-align: left;
 }
+
+@font-face {
+  font-family: 'thiccboi';
+  src: url('../public/fonts/THICCCBOI-Bold.woff2') format('woff2');
+}

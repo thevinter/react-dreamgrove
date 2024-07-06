@@ -23,6 +23,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        thiccboi: ['thiccboi', 'sans-serif'],
       },
       colors: {
         primary: {

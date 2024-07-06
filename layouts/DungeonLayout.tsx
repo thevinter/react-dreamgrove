@@ -1,21 +1,15 @@
 import { ReactNode, useState } from 'react'
 import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog, Authors } from 'contentlayer/generated'
+import type { Dungeons } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { FaArrowLeft } from 'react-icons/fa'
-
-const postDateTemplate: Intl.DateTimeFormatOptions = {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-}
+import ContributeHeader from '@/components/custom/ContributeHeader'
 
 interface LayoutProps {
-  content: CoreContent<Blog>
+  content: CoreContent<Dungeons>
   authorDetails: string[]
   next?: { path: string; title: string }
   prev?: { path: string; title: string }
@@ -23,7 +17,7 @@ interface LayoutProps {
 }
 
 export default function DungeonLayout({ content, authorDetails, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags, toc } = content
+  const { path, title } = content
   const basePath = path.split('/')[0]
 
   return (
@@ -32,7 +26,7 @@ export default function DungeonLayout({ content, authorDetails, children }: Layo
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <header className="pt-6 xl:pb-6">
-            <div className="space-y-1 text-center">
+            <div className="space-y-6 text-center">
               <div>
                 <PageTitle>{title}</PageTitle>
               </div>
@@ -42,6 +36,7 @@ export default function DungeonLayout({ content, authorDetails, children }: Layo
                   <span className="ml-2">Go Back</span>
                 </div>
               </Link>
+              <ContributeHeader />
             </div>
           </header>
           <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-12 xl:gap-x-6 xl:divide-y-0">
