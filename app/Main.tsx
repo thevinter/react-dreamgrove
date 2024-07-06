@@ -28,9 +28,9 @@ export default function Home() {
       <div className="grid grid-cols-1 gap-4 pt-0 sm:pt-4 lg:grid-cols-2 ">
         {images.map((image, index) => (
           <Link
-            className={image.active ? 'pointer-events-none' : ''}
-            aria-disabled={image.active}
-            tabIndex={image.active ? -1 : undefined}
+            className={!image.active ? 'pointer-events-none' : ''}
+            aria-disabled={!image.active}
+            tabIndex={!image.active ? -1 : undefined}
             key={index}
             href={image.href}
           >
