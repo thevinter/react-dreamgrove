@@ -27,7 +27,13 @@ export default function Home() {
     <>
       <div className="grid grid-cols-1 gap-4 pt-0 sm:pt-4 lg:grid-cols-2 ">
         {images.map((image, index) => (
-          <Link key={index} href={image.href}>
+          <Link
+            className={image.active ? 'pointer-events-none' : ''}
+            aria-disabled={image.active}
+            tabIndex={image.active ? -1 : undefined}
+            key={index}
+            href={image.href}
+          >
             <div
               className={`relative block ${
                 image.active
@@ -49,7 +55,7 @@ export default function Home() {
         ))}
       </div>
       {ENABLE_EXTRA_GUIDES && (
-        <div className="grid grid-cols-1 gap-4 pt-4 md:pt-6">
+        <div className="grid grid-cols-1 gap-4 pt-4 md:pt-4">
           {content.map((image, index) => (
             <Link key={index} href={image.href}>
               <div

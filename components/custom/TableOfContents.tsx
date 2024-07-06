@@ -9,7 +9,7 @@ const TocItem = ({ item, activeSlug }) => {
 
   return (
     <li
-      className={`my-2 ${isActive ? 'font-bold text-orange-600/50' : 'text-gray-400'}`}
+      className={`my-2 text-sm ${isActive ? 'font-bold text-orange-600 dark:text-orange-600/50' : 'text-gray-800 dark:text-gray-400'}`}
       style={{
         marginLeft: `${(item.depth - 1) * 25}px`,
         marginTop: '8px',

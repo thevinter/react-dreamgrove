@@ -80,7 +80,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             >
               <div
                 style={{ counterReset: 'heading' }}
-                className="prose ml-2 max-w-none pb-8 pt-10 dark:prose-invert"
+                className="prose ml-2 max-w-none pb-8 pt-10 text-base dark:prose-invert"
               >
                 {children}
               </div>

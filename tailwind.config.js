@@ -21,6 +21,10 @@ module.exports = {
         13: '3.25rem',
         14: '3.5rem',
       },
+      fontSize: {
+        base: '1.2rem',
+        sm: '1.1rem',
+      },
       fontFamily: {
         sans: ['thiccboi', ...fontFamily.sans],
         thiccboi: ['thiccboi', 'sans-serif'],
@@ -39,10 +43,8 @@ module.exports = {
             a: {
               color: theme('colors.primary.500'),
               textUnderlineOffset: '4px',
-              textDecorationStyle: 'dashed',
               fontWeight: '500',
               '&:hover': {
-                textDecorationStyle: 'solid',
                 color: `${theme('colors.primary.600')}`,
               },
               code: { color: theme('colors.primary.400') },
@@ -64,7 +66,7 @@ module.exports = {
               flexWrap: 'wrap',
               alignItems: 'center',
               '@screen sm': {
-                marginLeft: '-2.3rem',
+                marginLeft: '-2.6rem',
               },
             },
             h2: {

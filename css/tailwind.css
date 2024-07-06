@@ -71,6 +71,15 @@ h1.content-header::before {
 
 @font-face {
   font-family: 'thiccboi';
-  src: url('../public/fonts/THICCCBOI-Regular.woff2') format('woff2');
+  src: url('../public/fonts/THICCCBOI-SemiBold.woff2') format('woff2');
   font-weight: 400;
+}
+
+/*override for wowhead's item white in light mode*/
+html[style*='color-scheme: light;'] a.q1 {
+  color: darkslategrey !important;
+}
+
+html[style*='color-scheme: light;'] li::marker {
+  color: rgba(20, 20, 24, 0.571);
 }
