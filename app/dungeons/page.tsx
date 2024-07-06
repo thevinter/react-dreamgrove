@@ -4,7 +4,7 @@ import { allBlogs, allDungeons } from 'contentlayer/generated'
 import { genPageMetadata } from 'app/seo'
 import DungeonListLayout from '@/layouts/DungeonListLayout'
 
-const POSTS_PER_PAGE = 5
+const POSTS_PER_PAGE = 8
 
 export const metadata = genPageMetadata({ title: 'Blog' })
 
@@ -25,7 +25,7 @@ export default function BlogPage() {
       posts={posts}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
-      title="All Posts"
+      title="Dungeons"
     />
   )
 }

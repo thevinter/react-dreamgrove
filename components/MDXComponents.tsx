@@ -10,7 +10,7 @@ import Talents from './custom/Talents'
 import Checkbox from './custom/Checkbox'
 import HeroTalents from './custom/HeroTalents/HeroTalents'
 import HeroTalentsPicker from './custom/HeroTalents/HeroTalentsPicker'
-import DungeonCard from './custom/Dungeons/DungeonCard'
+import BossCard from './custom/Dungeons/BossCard'
 import Npc from './custom/Npc'
 import CheckboxProvider from './custom/CheckboxProvider'
 
@@ -56,7 +56,7 @@ export const components: MDXComponents = {
   Checkbox,
   HeroTalents,
   HeroTalentsPicker,
-  DungeonCard,
+  BossCard,
   Npc,
   CheckboxProvider,
 }

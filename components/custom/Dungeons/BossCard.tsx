@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image'
-export default function DungeonCard({ title, image, children }) {
+export default function BossCard({ title, image, children }) {
   return (
     <div
       className={`mb-6 flex w-full rounded-lg border border-gray-300 shadow-lg ${children.length == 0 ? 'hidden' : ''}`}
