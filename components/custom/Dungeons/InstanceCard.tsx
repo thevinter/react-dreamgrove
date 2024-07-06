@@ -22,7 +22,7 @@ const InstanceCard = ({ title, headerImage, path }) => {
           }}
         />
       </div>
-      <div className="font-thiccboi absolute bottom-0 left-0 bg-black bg-opacity-50 p-2 text-xl text-white">
+      <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 p-2 font-thiccboi text-xl text-white">
         {title}
       </div>
     </Link>
