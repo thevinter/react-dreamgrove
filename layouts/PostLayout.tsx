@@ -34,10 +34,6 @@ interface LayoutProps {
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
   const { filePath, path, slug, date, title, tags, toc } = content
-  const basePath = path.split('/')[0]
-  const [x, sX] = useState(true)
-  const router = useRouter()
-  console.log(tags)
 
   return (
     <SectionContainer>
