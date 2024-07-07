@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react'
 import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog, Authors, Raids } from 'contentlayer/generated'
+import type { Raids } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'

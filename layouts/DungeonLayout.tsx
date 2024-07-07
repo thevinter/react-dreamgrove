@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+'use client'
 import { ReactNode, useState } from 'react'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Dungeons } from 'contentlayer/generated'
@@ -8,6 +11,7 @@ import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { FaArrowLeft } from 'react-icons/fa'
 import ContributeHeader from '@/components/custom/ContributeHeader'
 import RoleSelector from '@/components/custom/Dungeons/RoleSelector'
+import { useRouter } from 'next/navigation'
 
 interface LayoutProps {
   content: CoreContent<Dungeons>
@@ -20,6 +24,7 @@ interface LayoutProps {
 export default function DungeonLayout({ content, authorDetails, children }: LayoutProps) {
   const { path, title } = content
   const basePath = path.split('/')[0]
+  const router = useRouter()
 
   return (
     <SectionContainer>
@@ -31,12 +36,12 @@ export default function DungeonLayout({ content, authorDetails, children }: Layo
               <div>
                 <PageTitle>{title}</PageTitle>
               </div>
-              <Link href="/dungeons">
+              <div onClick={() => router.back()}>
                 <div className="flex items-center pt-6 text-left underline md:text-xl">
                   <FaArrowLeft className="inline " />
                   <span className="ml-2">Go Back</span>
                 </div>
-              </Link>
+              </div>
               <ContributeHeader />
             </div>
           </header>

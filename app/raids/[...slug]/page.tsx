@@ -13,13 +13,14 @@ import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
 import RaidLayout from '@/layouts/RaidLayout'
+import DungeonLayout from '@/layouts/DungeonLayout'
 
-const defaultLayout = 'RaidLayout'
+const defaultLayout = 'DungeonLayout'
 const layouts = {
   PostSimple,
   PostLayout,
   PostBanner,
-  RaidLayout,
+  DungeonLayout,
 }
 
 export async function generateMetadata({

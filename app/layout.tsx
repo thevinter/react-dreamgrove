@@ -61,7 +61,6 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const scriptSrc = 'https://wow.zamimg.com/js/tooltips.js'
-
   return (
     <html
       lang={siteMetadata.language}
@@ -77,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <body className="flex h-screen bg-[#F2F3F4] text-black antialiased dark:bg-[#282828] dark:text-white">
+      <body className="flex h-full bg-[#F2F3F4] text-black antialiased dark:bg-[#282828] dark:text-white">
         <div className="flex h-full w-full flex-col ">
           <ThemeProviders>
             <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />

@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation'
 
 export default function ContributeHeader() {
   const url = usePathname()
-  console.log(url)
   return (
     <div className="my-[20px] flex items-center rounded-md bg-blue-300/50 p-4 text-left">
       <FaCircleInfo className="inline" />

@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 import { FaAngleDown } from 'react-icons/fa'
 import { FaAngleUp } from 'react-icons/fa'
 
-import './Talents.css'
+import styles from './Talents.module.css'
 
 export default function Talents({ name, talents, mimiron = false }) {
   const [isVisible, setIsVisible] = useState(false)
@@ -36,7 +36,7 @@ export default function Talents({ name, talents, mimiron = false }) {
   return (
     <div className="mb-4">
       <div
-        onClick={() => setIsVisible(!isVisible)}
+        onClick={() => setIsVisible((prev) => !prev)}
         style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -46,12 +46,12 @@ export default function Talents({ name, talents, mimiron = false }) {
           borderBottom: '2px solid white', // White underline
         }}
       >
-        <h3 className="my-2" onClick={() => setIsVisible(!isVisible)}>
+        <h3 className="my-2" onClick={() => setIsVisible((prev) => !prev)}>
           {name}
         </h3>
         {arrow}
       </div>
-      <div className={`iframe-container ${isVisible ? 'show' : 'hide'}`}>
+      <div className={`${styles.container} ${isVisible ? styles.show : styles.hide}`}>
         <iframe
           title={name}
           src={`https://${mimiron ? 'mimiron' : 'www'}.raidbots.com/simbot/render/talents/${talents}?bgcolor=000000&width=${iframeWidth * 0.99}&level=70&mini=&hideHeader=true&locale=en_US`}

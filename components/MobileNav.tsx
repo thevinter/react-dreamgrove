@@ -4,9 +4,12 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
+import WrapperTest from './WrapperTest'
+import { usePathname } from 'next/navigation'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
+  const path = usePathname()
 
   const onToggleNav = () => {
     setNavShow((status) => {
@@ -25,7 +28,7 @@ const MobileNav = () => {
       <button
         aria-label="Toggle Menu"
         onClick={onToggleNav}
-        className="mt-[2px] align-middle sm:hidden"
+        className="mt-[2px] align-middle lg:hidden"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +69,7 @@ const MobileNav = () => {
                 leaveTo="translate-x-full opacity-0"
               >
                 <Dialog.Panel className="fixed left-0 top-0 z-10 h-full w-full bg-white opacity-95 duration-300 dark:bg-gray-950 dark:opacity-[0.98]">
-                  <nav className="fixed mt-8 h-full text-left">
+                  <nav className="fixed h-full w-full overflow-scroll pt-8 text-left">
                     {headerNavLinks.map((link) => (
                       <div key={link.title} className="px-12 py-4">
                         <Link
@@ -78,11 +81,17 @@ const MobileNav = () => {
                         </Link>
                       </div>
                     ))}
+                    <div className="pb-8">
+                      <WrapperTest
+                        slug={path.split('/').slice(-2).join('/')}
+                        toggleNav={onToggleNav}
+                      />
+                    </div>
                   </nav>
 
-                  <div className="flex justify-end">
+                  <div className="flex justify-end pr-2 pt-1">
                     <button
-                      className="mr-8 mt-11 h-8 w-8"
+                      className="z-50 mr-8 mt-11 h-8 w-8"
                       aria-label="Toggle Menu"
                       onClick={onToggleNav}
                     >
