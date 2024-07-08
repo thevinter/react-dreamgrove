@@ -86,6 +86,20 @@ module.exports = () => {
         },
       ],
     },
+    async redirects() {
+      return [
+        {
+          source: '/balance/compendium',
+          destination: '/blog/balance/compendium',
+          permanent: true, // use `true` for a 301 redirect, `false` for a 302 redirect
+        },
+        {
+          source: '/feral/compendium',
+          destination: '/blog/feral/compendium',
+          permanent: true, // use `true` for a 301 redirect, `false` for a 302 redirect
+        },
+      ]
+    },
     async headers() {
       return [
         {
