@@ -14,14 +14,15 @@ interface Chapter {
   depth: number
 }
 
-interface TocItemProps {
-  item: Chapter
-  activeSlug: string
-  inSidebar?: boolean
-}
-
-const TocItem = ({ item, activeSlug = '', inSidebar = false, toggleNav = () => {} }) => {
-  const isActive = activeSlug ? getIdFromUrl(item.url) === activeSlug : false
+const TocItem = ({
+  item,
+  activeSlug = '',
+  inSidebar = false,
+  toggleNav = () => {},
+  setActiveSlug = (target) => {},
+}) => {
+  const targetUrl = getIdFromUrl(item.url)
+  const isActive = activeSlug ? targetUrl === activeSlug : false
 
   if (inSidebar && toggleNav) {
     return (
@@ -32,7 +33,7 @@ const TocItem = ({ item, activeSlug = '', inSidebar = false, toggleNav = () => {
           marginTop: `${item.depth === 1 ? '12px ' : '5px'}`,
         }}
       >
-        <a onClick={() => toggleNav()} href={item.url.replace(/-\d+$/, '')}>
+        <a onClick={() => toggleNav()} href={targetUrl}>
           {item.value}
         </a>
       </li>
@@ -47,7 +48,9 @@ const TocItem = ({ item, activeSlug = '', inSidebar = false, toggleNav = () => {
         marginTop: `${item.depth === 1 ? '12px ' : '5px'}`,
       }}
     >
-      <a href={item.url.replace(/-\d+$/, '')}>{item.value}</a>
+      <a onClick={() => setActiveSlug(targetUrl)} href={targetUrl}>
+        {item.value}
+      </a>
     </li>
   )
 }
@@ -127,18 +130,33 @@ const renderCollapsibleItems = (items: Chapter[], toggleNav) => {
 }
 
 export default function TableOfContents({ chapters, inSidebar = false, toggleNav = () => {} }) {
-  const [activeSlug, setActiveSlug] = useState('')
+  const [activeSlug, setActiveSlug] = useState(getIdFromUrl(chapters[0].url))
+  const [scrollingDir, setScrollingDir] = useState(1)
 
-  const post = allBlogs.find((p) => p.slug === '') as Blog
+  const handleScroll = (lastScroll) => {
+    setScrollingDir(window.scrollY > lastScroll ? 0 : 1)
+  }
+
+  const clickSlug = (slug) => {
+    setScrollingDir(1)
+  }
 
   useEffect(() => {
     if (inSidebar) return
+    if (typeof window !== 'undefined') {
+      const lastScrollY = window.scrollY
+      window.addEventListener('scroll', () => handleScroll(lastScrollY))
+    }
+
+    setActiveSlug(getIdFromUrl(chapters[0].url))
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
+        const sortedEntries = scrollingDir === 1 ? entries.reverse() : entries
+
+        sortedEntries.forEach((entry) => {
           if (entry?.isIntersecting) {
-            setActiveSlug(entry.target.id)
+            setActiveSlug(`#${entry.target.id}`)
           }
         })
       },
@@ -149,15 +167,18 @@ export default function TableOfContents({ chapters, inSidebar = false, toggleNav
 
     chapters.forEach((chapter) => {
       if (chapter.depth === 1) {
-        const element = document.getElementById(getIdFromUrl(chapter.url))
+        const element = document.getElementById(getIdFromUrl(chapter.url.slice(1)))
         if (element) {
           observer.observe(element)
         }
       }
     })
 
-    return () => observer.disconnect()
-  }, [chapters])
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [chapters, scrollingDir])
 
   if (inSidebar) {
     return (
@@ -170,11 +191,13 @@ export default function TableOfContents({ chapters, inSidebar = false, toggleNav
   }
 
   return (
-    <nav className="mb-8 flex items-center self-start pt-9" aria-label="Table of Contents">
+    <nav className="mb-8 flex items-center self-start pt-[0.6rem]" aria-label="Table of Contents">
       <ol className="list-none space-y-3">
         {chapters.map((item, index) => {
           if (item.depth < 3) {
-            return <TocItem key={index} item={item} activeSlug={activeSlug} />
+            return (
+              <TocItem key={index} item={item} activeSlug={activeSlug} setActiveSlug={clickSlug} />
+            )
           }
         })}
       </ol>
@@ -183,5 +206,5 @@ export default function TableOfContents({ chapters, inSidebar = false, toggleNav
 }
 
 function getIdFromUrl(url) {
-  return url.slice(1).replace(/-\d+$/, '') // Remove '#' and the trailing '-{number}'
+  return url.replace(/-\d+$/, '') // Remove '#' and the trailing '-{number}'
 }

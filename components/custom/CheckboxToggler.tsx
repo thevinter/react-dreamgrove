@@ -53,7 +53,7 @@ const CheckboxToggler = ({
   return (
     <label>
       <input
-        className="align-middle"
+        className="align-middle focus:outline-none"
         type="checkbox"
         checked={checked}
         onChange={() => handleToggle(!checked)}

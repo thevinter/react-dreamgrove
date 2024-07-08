@@ -37,6 +37,7 @@ module.exports = {
           light: '#d57f43', // Optional: light variant
         },
         gray: colors.gray,
+        main: '#d57f43',
       },
       typography: ({ theme }) => ({
         DEFAULT: {

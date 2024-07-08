@@ -92,7 +92,7 @@ export default async function Wowhead({ id, name, type, disabled = false }) {
         <a
           href={`https://www.wowhead.com/${type}=${displayId}`}
           className={`inline decoration-2 q${quality}`}
-          style={{ color: linkColor, marginBottom: '1px' }}
+          style={{ color: linkColor, marginBottom: '1px', textWrap: 'nowrap' }}
         >
           <Image
             src={imageUrl}
@@ -101,7 +101,7 @@ export default async function Wowhead({ id, name, type, disabled = false }) {
             height={16}
             className="my-0 mr-1 inline-block"
           />
-          <span className="mr-1">{display}</span>
+          <span className="mr-1 text-balance">{display}</span>
         </a>
       )}
     </>

@@ -1,4 +1,3 @@
-'use client'
 import { ReactNode } from 'react'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
@@ -9,6 +8,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import TableOfContents from '@/components/custom/TableOfContents'
+import { FaHistory } from 'react-icons/fa'
 
 interface LayoutProps {
   content: CoreContent<Blog>
@@ -19,8 +19,9 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, authorDetails, children }: LayoutProps) {
-  const { patch, slug, title, tags, toc } = content
+  const { patch, slug, title, tags, toc, lastModified, changelogUrl } = content
 
+  const updateInfo = `Last updated on the ${lastModified} for patch ${patch}`
   return (
     <SectionContainer>
       <ScrollTopAndComment />
@@ -43,10 +44,8 @@ export default function PostLayout({ content, authorDetails, children }: LayoutP
                   ))}
                 </p>
               </div>
-              <div>
-                <div className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 sm:pt-4">
-                  <span>Updated for patch {patch}</span>
-                </div>
+              <div className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 sm:pt-4">
+                <span>{updateInfo}</span>
               </div>
             </div>
           </header>
@@ -57,11 +56,18 @@ export default function PostLayout({ content, authorDetails, children }: LayoutP
 
             <div
               id="main"
-              className="divide-y divide-gray-200 dark:divide-gray-700 lg:col-span-9 lg:pb-0"
+              className=" divide-gray-200 dark:divide-gray-700 md:pt-6 lg:col-span-9 lg:pb-0"
             >
+              <a
+                href={changelogUrl}
+                className="ml-[-1.4rem] w-full font-medium text-main underline decoration-2 underline-offset-4 "
+              >
+                <FaHistory className="mr-2 inline" />
+                <span className="inline align-top">Changelog</span>
+              </a>
               <div
                 style={{ counterReset: 'heading' }}
-                className="prose ml-2 max-w-none pb-8 pt-10 text-base dark:prose-invert"
+                className="prose ml-2 max-w-none pb-8 pt-10 text-base dark:prose-invert md:pt-4"
               >
                 {children}
               </div>
