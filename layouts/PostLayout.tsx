@@ -60,14 +60,14 @@ export default function PostLayout({ content, authorDetails, children }: LayoutP
             >
               <a
                 href={changelogUrl}
-                className="ml-[-1.4rem] w-full font-medium text-main underline decoration-2 underline-offset-4 "
+                className="w-full font-medium text-main underline decoration-2 underline-offset-4 "
               >
                 <FaHistory className="mr-2 inline" />
                 <span className="inline align-top">Changelog</span>
               </a>
               <div
                 style={{ counterReset: 'heading' }}
-                className="prose ml-2 max-w-none pb-8 pt-10 text-base dark:prose-invert md:pt-4"
+                className="prose  max-w-none pb-8 pt-10 text-base dark:prose-invert md:pt-4"
               >
                 {children}
               </div>

@@ -148,8 +148,6 @@ export default function TableOfContents({ chapters, inSidebar = false, toggleNav
       window.addEventListener('scroll', () => handleScroll(lastScrollY))
     }
 
-    setActiveSlug(getIdFromUrl(chapters[0].url))
-
     const observer = new IntersectionObserver(
       (entries) => {
         const sortedEntries = scrollingDir === 1 ? entries.reverse() : entries
