@@ -10,7 +10,11 @@ const Checkbox = ({
   radio = '',
   children,
 }) => {
-  const child = text ? name : <Wowhead type="spell" id={spellId} name={name} disabled />
+  const child = text ? (
+    name || spellId == ''
+  ) : (
+    <Wowhead type="spell" id={spellId} name={name} disabled />
+  )
 
   return (
     <div className="x mb-2 mt-2 min-h-[16px] whitespace-nowrap">
