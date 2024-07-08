@@ -60,7 +60,7 @@ export default function Home() {
             <Link
               key={index}
               href={image.href}
-              className={ENABLE_EXTRA_GUIDES ? 'pointer-events-none' : ''}
+              className={!ENABLE_EXTRA_GUIDES ? 'pointer-events-none' : ''}
               aria-disabled={!ENABLE_EXTRA_GUIDES}
               tabIndex={!ENABLE_EXTRA_GUIDES ? -1 : undefined}
             >
