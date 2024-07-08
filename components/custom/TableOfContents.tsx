@@ -7,6 +7,8 @@ import styles from './Talents.module.css'
 import { FaAngleDown } from 'react-icons/fa'
 import { FaAngleUp } from 'react-icons/fa'
 
+import { allBlogs, Blog } from 'contentlayer/generated'
+
 interface Chapter {
   value: string
   depth: number
@@ -30,22 +32,22 @@ const TocItem = ({ item, activeSlug = '', inSidebar = false, toggleNav = () => {
           marginTop: `${item.depth === 1 ? '12px ' : '5px'}`,
         }}
       >
-        <Link onClick={() => toggleNav()} href={item.url.replace(/-\d+$/, '')}>
+        <a onClick={() => toggleNav()} href={item.url.replace(/-\d+$/, '')}>
           {item.value}
-        </Link>
+        </a>
       </li>
     )
   }
 
   return (
     <li
-      className={`my-2 text-sm ${isActive ? 'font-bold text-orange-600 dark:text-orange-600/50' : 'text-gray-800 dark:text-gray-400'}`}
+      className={`my-2 text-sm ${isActive ? 'text-xl font-bold text-orange-600 dark:text-orange-600/50' : 'text-gray-800 dark:text-gray-400'}`}
       style={{
         marginLeft: `${(item.depth - 1) * 25}px`,
         marginTop: `${item.depth === 1 ? '12px ' : '5px'}`,
       }}
     >
-      <Link href={item.url.replace(/-\d+$/, '')}>{item.value}</Link>
+      <a href={item.url.replace(/-\d+$/, '')}>{item.value}</a>
     </li>
   )
 }
@@ -127,6 +129,8 @@ const renderCollapsibleItems = (items: Chapter[], toggleNav) => {
 export default function TableOfContents({ chapters, inSidebar = false, toggleNav = () => {} }) {
   const [activeSlug, setActiveSlug] = useState('')
 
+  const post = allBlogs.find((p) => p.slug === '') as Blog
+
   useEffect(() => {
     if (inSidebar) return
 
@@ -139,7 +143,7 @@ export default function TableOfContents({ chapters, inSidebar = false, toggleNav
         })
       },
       {
-        rootMargin: '5% 0px 5% 0px', // Adjusting to handle multiple h1s in view
+        rootMargin: '15% 0px -25% 0px', // Adjusting to handle multiple h1s in view
       }
     )
 

@@ -1,6 +1,6 @@
 const whTooltips = {
-  colorLinks: true,
-  iconizeLinks: true,
+  colorLinks: false,
+  iconizeLinks: false,
   renameLinks: false,
 }
 

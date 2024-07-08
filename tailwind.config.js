@@ -45,6 +45,7 @@ module.exports = {
               color: theme('colors.primary.500'),
               textUnderlineOffset: '4px',
               fontWeight: '500',
+              textDecorationThickness: '2px',
               '&:hover': {
                 color: `${theme('colors.primary.600')}`,
               },

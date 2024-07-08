@@ -43,14 +43,11 @@ export default function PostLayout({ content, authorDetails, children }: LayoutP
                   ))}
                 </p>
               </div>
-              <dl className="space-y-10">
-                <div>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <span>Updated for patch {patch}</span>
-                  </dd>
+              <div>
+                <div className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 sm:pt-4">
+                  <span>Updated for patch {patch}</span>
                 </div>
-              </dl>
+              </div>
             </div>
           </header>
           <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 lg:grid lg:grid-cols-12 lg:gap-x-6 lg:divide-y-0">

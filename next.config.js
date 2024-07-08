@@ -82,7 +82,7 @@ module.exports = () => {
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'picsum.photos',
+          hostname: 'wow.zamimg.com',
         },
       ],
     },

@@ -1,10 +1,10 @@
 import { visit } from 'unist-util-visit'
 
-export default function remarkSpell() {
+export default function remarkCheckbox() {
   return (tree) => {
     visit(tree, 'text', (node, index, parent) => {
       const value = node.value
-      const regex = /!(\d+\|)?(.*?)!/g
+      const regex = /\?(\d+\|)?(.*?)\?/g
       const matches = [...value.matchAll(regex)]
 
       if (matches.length) {
@@ -23,32 +23,48 @@ export default function remarkSpell() {
             })
           }
 
-          const attributes = []
+          const spellAttributes = []
           if (id) {
-            attributes.push({
+            spellAttributes.push({
               type: 'mdxJsxAttribute',
               name: 'id',
               value: id.slice(0, -1), // remove the trailing '|'
             })
           }
-          attributes.push({
+          spellAttributes.push({
             type: 'mdxJsxAttribute',
             name: 'name',
             value: spellName,
           })
-          attributes.push({
+          spellAttributes.push({
             type: 'mdxJsxAttribute',
             name: 'type',
             value: 'spell',
           })
+          const checkboxAttributes = []
+          if (id) {
+            checkboxAttributes.push({
+              type: 'mdxJsxAttribute',
+              name: 'id',
+              value: id.slice(0, -1), // remove the trailing '|'
+            })
+          }
 
-          newNodes.push({
+          const spellNode = {
             type: 'mdxJsxFlowElement',
             name: 'Wowhead',
-            attributes: attributes,
+            attributes: spellAttributes,
             children: [],
-          })
+          }
 
+          const checkboxNode = {
+            type: 'mdxJsxFlowElement',
+            name: 'Checkbox',
+            attributes: checkboxAttributes,
+            children: [spellNode],
+          }
+
+          newNodes.push(checkboxNode)
           lastIndex = end
         })
 
